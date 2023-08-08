@@ -17,6 +17,11 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 14
+      - name: Setup SSH Agent
+        uses: webfactory/ssh-agent@v0.7.0
+        with:
+          ssh-private-key: |
+            ${{ secrets.SSH_PRIVATE_KEY_MYSTIKO_PROTOS }}
       - name: Setup NPM
         run: |
           echo "@mystikonetwork:registry=https://npm.pkg.github.com" >> $HOME/.npmrc
@@ -24,7 +29,7 @@ jobs:
       - name: Build
         run: yarn build
       - name: Publish
-        run: yarn publish
+        run: yarn publish --registry https://npm.pkg.github.com
       - name: Telegram Failure Notification
         uses: appleboy/telegram-action@master
         if: failure()
