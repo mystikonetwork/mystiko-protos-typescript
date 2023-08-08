@@ -1,0 +1,9 @@
+version: v1
+managed:
+  enabled: true
+  java_package_prefix:
+    default: network
+plugins:
+  - plugin: buf.build/bufbuild/es
+    opt: target=ts
+    out: src/gen
