@@ -13,7 +13,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          lfs: true
+          submodules: recursive
       - uses: actions/setup-node@v3
         with:
           node-version: 14
