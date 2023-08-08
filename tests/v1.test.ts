@@ -1,4 +1,6 @@
-import { ChainData, Commitment, CommitmentStatus, ContractData, Nullifier } from '../src/data/v1';
+import { data } from '../src';
+
+const { ChainData, Commitment, CommitmentStatus, ContractData, Nullifier } = data.v1;
 
 test('test serde', () => {
   const commitment = new Commitment({
@@ -25,20 +27,22 @@ test('test serde', () => {
   expect(Nullifier.equals(Nullifier.fromJson(nullifier.toJson()), nullifier)).toBe(true);
   expect(Nullifier.equals(Nullifier.fromJsonString(nullifier.toJsonString()), nullifier)).toBe(true);
   expect(Nullifier.equals(Nullifier.fromBinary(nullifier.toBinary()), nullifier)).toBe(true);
-  const contract_data = new ContractData({
+  const contractData = new ContractData({
     contractAddress: new Uint8Array([0xde, 0xad, 0xbe, 0xef, 0xba, 0xad, 0xba, 0xbe]),
     commitments: [commitment],
     nullifiers: [nullifier],
   });
-  expect(ContractData.equals(ContractData.fromJson(contract_data.toJson()), contract_data)).toBe(true);
-  expect(ContractData.equals(ContractData.fromJsonString(contract_data.toJsonString()), contract_data)).toBe(true);
-  expect(ContractData.equals(ContractData.fromBinary(contract_data.toBinary()), contract_data)).toBe(true);
-  const chain_data = new ChainData({
+  expect(ContractData.equals(ContractData.fromJson(contractData.toJson()), contractData)).toBe(true);
+  expect(ContractData.equals(ContractData.fromJsonString(contractData.toJsonString()), contractData)).toBe(
+    true,
+  );
+  expect(ContractData.equals(ContractData.fromBinary(contractData.toBinary()), contractData)).toBe(true);
+  const chainData = new ChainData({
     startBlock: BigInt(10000),
     endBlock: BigInt(10004),
-    contractData: [contract_data],
+    contractData: [contractData],
   });
-  expect(ChainData.equals(ChainData.fromJson(chain_data.toJson()), chain_data)).toBe(true);
-  expect(ChainData.equals(ChainData.fromJsonString(chain_data.toJsonString()), chain_data)).toBe(true);
-  expect(ChainData.equals(ChainData.fromBinary(chain_data.toBinary()), chain_data)).toBe(true);
+  expect(ChainData.equals(ChainData.fromJson(chainData.toJson()), chainData)).toBe(true);
+  expect(ChainData.equals(ChainData.fromJsonString(chainData.toJsonString()), chainData)).toBe(true);
+  expect(ChainData.equals(ChainData.fromBinary(chainData.toBinary()), chainData)).toBe(true);
 });
