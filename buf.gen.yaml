@@ -6,4 +6,7 @@ managed:
 plugins:
   - plugin: buf.build/bufbuild/es
     opt: target=ts
-    out: src/gen
+    out: buf_gen
+  - plugin: buf.build/connectrpc/es
+    opt: target=ts
+    out: buf_gen

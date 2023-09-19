@@ -2,3 +2,4 @@ build
 *.log
 yarn.lock
 coverage
+buf_gen

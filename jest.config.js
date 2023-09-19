@@ -17,5 +17,6 @@ module.exports = {
   },
   moduleNameMapper: {
     '^(.+)_pb\\.js$': '$1_pb',
+    '^(.+)_connect\\.js$': '$1_connect',
   },
 };
