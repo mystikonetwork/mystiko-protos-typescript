@@ -1,6 +1,6 @@
 {
   "name": "@mystikonetwork/protos",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Mystiko Protobuf Messages",
   "main": "build/cjs/index.js",
   "module": "build/esm/index.js",
@@ -23,7 +23,7 @@
   ],
   "license": "MIT",
   "scripts": {
-    "prebuild": "rm -rf src/gen && buf generate && yarn prettier:fix",
+    "prebuild": "bash ./scripts/build_protos.sh",
     "build:cjs": "tsc -p ./tsconfig.json",
     "build:esm": "tsc -p ./tsconfig.esm.json",
     "build": "rm -rf build && yarn build:cjs && yarn build:esm",
