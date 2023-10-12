@@ -3,6 +3,10 @@ import { data, sequencer } from '../src';
 const { Commitment, CommitmentStatus, Nullifier } = data.v1;
 
 const {
+  GetCommitmentsRequest,
+  GetCommitmentsResponse,
+  GetNullifiersRequest,
+  GetNullifiersResponse,
   ChainLoadedBlockRequest,
   ChainLoadedBlockResponse,
   ContractLoadedBlockRequest,
@@ -18,9 +22,11 @@ const {
 test('test serde', () => {
   const chainLoadedBlockRequest = new ChainLoadedBlockRequest({
     chainId: BigInt(1),
+    withContracts: true,
   });
   const chainLoadedBlockResponse = new ChainLoadedBlockResponse({
     blockNumber: BigInt(100000000),
+    contracts: [],
   });
   const contractLoadedBlockRequest = new ContractLoadedBlockRequest({
     chainId: BigInt(1),
@@ -70,6 +76,46 @@ test('test serde', () => {
   const fetchChainResponse = new FetchChainResponse({
     chainId: BigInt(1),
     contracts: [fetchContractResponse],
+  });
+  const getCommitmentsRequest = new GetCommitmentsRequest({
+    chainId: BigInt(1),
+    contractAddress: new Uint8Array([0xba, 0xad, 0xba, 0xbe]),
+    commitmentHashes: [new Uint8Array([0xba, 0xad, 0xba, 0xbe])],
+  });
+  const getCommitmentsResponse = new GetCommitmentsResponse({
+    chainId: BigInt(1),
+    contractAddress: new Uint8Array([0xba, 0xad, 0xba, 0xbe]),
+    commitments: [
+      new Commitment({
+        commitmentHash: new Uint8Array([0xde, 0xad, 0xbe, 0xef]),
+        status: CommitmentStatus.QUEUED,
+        blockNumber: BigInt(10001),
+        includedBlockNumber: BigInt(10002),
+        srcChainBlockNumber: BigInt(20001),
+        leafIndex: BigInt(0),
+        rollupFee: new Uint8Array([0xba, 0xad, 0xba, 0xbe]),
+        encryptedNote: new Uint8Array([0xde, 0xad, 0xbe, 0xef, 0xba, 0xad, 0xba, 0xbe]),
+        queuedTransactionHash: new Uint8Array([0xde, 0xad]),
+        includedTransactionHash: new Uint8Array([0xbe, 0xef]),
+        srcChainTransactionHash: new Uint8Array([0xba, 0xbe]),
+      }),
+    ],
+  });
+  const getNullifierRequest = new GetNullifiersRequest({
+    chainId: BigInt(1),
+    contractAddress: new Uint8Array([0xba, 0xad, 0xba, 0xbe]),
+    nullifierHashes: [new Uint8Array([0xba, 0xad, 0xba, 0xbe])],
+  });
+  const getNullifierResponse = new GetNullifiersResponse({
+    chainId: BigInt(1),
+    contractAddress: new Uint8Array([0xba, 0xad, 0xba, 0xbe]),
+    nullifiers: [
+      new Nullifier({
+        nullifier: new Uint8Array([0xba, 0xad, 0xba, 0xbe]),
+        blockNumber: BigInt(10003),
+        transactionHash: new Uint8Array([0xde, 0xad, 0xbe, 0xef]),
+      }),
+    ],
   });
   const healthCheckRequest = new HealthCheckRequest({});
   const healthCheckResponse = new HealthCheckResponse({});
@@ -214,6 +260,82 @@ test('test serde', () => {
     FetchChainResponse.equals(
       FetchChainResponse.fromBinary(fetchChainResponse.toBinary()),
       fetchChainResponse,
+    ),
+  ).toBe(true);
+
+  expect(
+    GetCommitmentsRequest.equals(
+      GetCommitmentsRequest.fromJson(getCommitmentsRequest.toJson()),
+      getCommitmentsRequest,
+    ),
+  ).toBe(true);
+  expect(
+    GetCommitmentsRequest.equals(
+      GetCommitmentsRequest.fromJsonString(getCommitmentsRequest.toJsonString()),
+      getCommitmentsRequest,
+    ),
+  ).toBe(true);
+  expect(
+    GetCommitmentsRequest.equals(
+      GetCommitmentsRequest.fromBinary(getCommitmentsRequest.toBinary()),
+      getCommitmentsRequest,
+    ),
+  ).toBe(true);
+
+  expect(
+    GetCommitmentsResponse.equals(
+      GetCommitmentsResponse.fromJson(getCommitmentsResponse.toJson()),
+      getCommitmentsResponse,
+    ),
+  ).toBe(true);
+  expect(
+    GetCommitmentsResponse.equals(
+      GetCommitmentsResponse.fromJsonString(getCommitmentsResponse.toJsonString()),
+      getCommitmentsResponse,
+    ),
+  ).toBe(true);
+  expect(
+    GetCommitmentsResponse.equals(
+      GetCommitmentsResponse.fromBinary(getCommitmentsResponse.toBinary()),
+      getCommitmentsResponse,
+    ),
+  ).toBe(true);
+
+  expect(
+    GetNullifiersRequest.equals(
+      GetNullifiersRequest.fromJson(getNullifierRequest.toJson()),
+      getNullifierRequest,
+    ),
+  ).toBe(true);
+  expect(
+    GetNullifiersRequest.equals(
+      GetNullifiersRequest.fromJsonString(getNullifierRequest.toJsonString()),
+      getNullifierRequest,
+    ),
+  ).toBe(true);
+  expect(
+    GetNullifiersRequest.equals(
+      GetNullifiersRequest.fromBinary(getNullifierRequest.toBinary()),
+      getNullifierRequest,
+    ),
+  ).toBe(true);
+
+  expect(
+    GetNullifiersResponse.equals(
+      GetNullifiersResponse.fromJson(getNullifierResponse.toJson()),
+      getNullifierResponse,
+    ),
+  ).toBe(true);
+  expect(
+    GetNullifiersResponse.equals(
+      GetNullifiersResponse.fromJsonString(getNullifierResponse.toJsonString()),
+      getNullifierResponse,
+    ),
+  ).toBe(true);
+  expect(
+    GetNullifiersResponse.equals(
+      GetNullifiersResponse.fromBinary(getNullifierResponse.toBinary()),
+      getNullifierResponse,
     ),
   ).toBe(true);
 
