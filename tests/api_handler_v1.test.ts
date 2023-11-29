@@ -46,10 +46,22 @@ test('test request', () => {
       createWalletRequest,
     ),
   ).toBe(true);
+  expect(
+    CreateWalletRequest.equals(
+      createWalletRequest.fromBinary(createWalletRequest.toBinary()),
+      createWalletRequest,
+    ),
+  ).toBe(true);
   const checkCurrentRequest = new CheckCurrentRequest({});
   expect(
     CheckCurrentRequest.equals(
       checkCurrentRequest.fromJson(checkCurrentRequest.toJson()),
+      checkCurrentRequest,
+    ),
+  ).toBe(true);
+  expect(
+    CheckCurrentRequest.equals(
+      checkCurrentRequest.fromBinary(checkCurrentRequest.toBinary()),
       checkCurrentRequest,
     ),
   ).toBe(true);
@@ -59,6 +71,12 @@ test('test request', () => {
   expect(
     CheckPasswordRequest.equals(
       checkPasswordRequest.fromJson(checkPasswordRequest.toJson()),
+      checkPasswordRequest,
+    ),
+  ).toBe(true);
+  expect(
+    CheckPasswordRequest.equals(
+      checkPasswordRequest.fromBinary(checkPasswordRequest.toBinary()),
       checkPasswordRequest,
     ),
   ).toBe(true);
@@ -72,12 +90,24 @@ test('test request', () => {
       updatePasswordRequest,
     ),
   ).toBe(true);
+  expect(
+    UpdatePasswordRequest.equals(
+      updatePasswordRequest.fromBinary(updatePasswordRequest.toBinary()),
+      updatePasswordRequest,
+    ),
+  ).toBe(true);
   const exportMnemonicPhraseRequest = new ExportMnemonicPhraseRequest({
     password: 'test password',
   });
   expect(
     ExportMnemonicPhraseRequest.equals(
       exportMnemonicPhraseRequest.fromJson(exportMnemonicPhraseRequest.toJson()),
+      exportMnemonicPhraseRequest,
+    ),
+  ).toBe(true);
+  expect(
+    ExportMnemonicPhraseRequest.equals(
+      exportMnemonicPhraseRequest.fromBinary(exportMnemonicPhraseRequest.toBinary()),
       exportMnemonicPhraseRequest,
     ),
   ).toBe(true);
@@ -94,7 +124,12 @@ test('test request', () => {
       createAccountRequest,
     ),
   ).toBe(true);
-
+  expect(
+    CreateAccountRequest.equals(
+      createAccountRequest.fromBinary(createAccountRequest.toBinary()),
+      createAccountRequest,
+    ),
+  ).toBe(true);
   const queryFilter = new QueryFilter({
     conditions: [
       new Condition({
@@ -124,6 +159,12 @@ test('test request', () => {
       countAccountRequest,
     ),
   ).toBe(true);
+  expect(
+    CountAccountRequest.equals(
+      countAccountRequest.fromBinary(countAccountRequest.toBinary()),
+      countAccountRequest,
+    ),
+  ).toBe(true);
   const accountRequest = new FindAccountRequest({
     condition: {
       value: queryFilter,
@@ -133,6 +174,9 @@ test('test request', () => {
   expect(FindAccountRequest.equals(accountRequest.fromJson(accountRequest.toJson()), accountRequest)).toBe(
     true,
   );
+  expect(
+    FindAccountRequest.equals(accountRequest.fromBinary(accountRequest.toBinary()), accountRequest),
+  ).toBe(true);
   const accountByIdentifierRequest = new FindAccountByIdentifierRequest({
     identifier: { value: '123', case: 'id' },
   });
@@ -142,12 +186,24 @@ test('test request', () => {
       accountByIdentifierRequest,
     ),
   ).toBe(true);
+  expect(
+    FindAccountByIdentifierRequest.equals(
+      accountByIdentifierRequest.fromBinary(accountByIdentifierRequest.toBinary()),
+      accountByIdentifierRequest,
+    ),
+  ).toBe(true);
   const updateAccountRequest = new UpdateAccountRequest({
     identifier: { value: '123', case: 'id' },
   });
   expect(
     UpdateAccountRequest.equals(
       updateAccountRequest.fromJson(updateAccountRequest.toJson()),
+      updateAccountRequest,
+    ),
+  ).toBe(true);
+  expect(
+    UpdateAccountRequest.equals(
+      updateAccountRequest.fromBinary(updateAccountRequest.toBinary()),
       updateAccountRequest,
     ),
   ).toBe(true);
@@ -161,12 +217,24 @@ test('test request', () => {
       updateEncryptionRequest,
     ),
   ).toBe(true);
+  expect(
+    UpdateEncryptionRequest.equals(
+      updateEncryptionRequest.fromBinary(updateEncryptionRequest.toBinary()),
+      updateEncryptionRequest,
+    ),
+  ).toBe(true);
   const exportSecretKeyRequest = new ExportSecretKeyRequest({
     identifier: { value: '123', case: 'id' },
   });
   expect(
     ExportSecretKeyRequest.equals(
       exportSecretKeyRequest.fromJson(exportSecretKeyRequest.toJson()),
+      exportSecretKeyRequest,
+    ),
+  ).toBe(true);
+  expect(
+    ExportSecretKeyRequest.equals(
+      exportSecretKeyRequest.fromBinary(exportSecretKeyRequest.toBinary()),
       exportSecretKeyRequest,
     ),
   ).toBe(true);
@@ -188,12 +256,24 @@ test('test response', () => {
       createWalletResponse,
     ),
   ).toBe(true);
+  expect(
+    CreateWalletResponse.equals(
+      createWalletResponse.fromBinary(createWalletResponse.toBinary()),
+      createWalletResponse,
+    ),
+  ).toBe(true);
   const checkCurrentResponse = new CheckCurrentResponse({
     wallet,
   });
   expect(
     CheckCurrentResponse.equals(
       checkCurrentResponse.fromJson(checkCurrentResponse.toJson()),
+      checkCurrentResponse,
+    ),
+  ).toBe(true);
+  expect(
+    CheckCurrentResponse.equals(
+      checkCurrentResponse.fromBinary(checkCurrentResponse.toBinary()),
       checkCurrentResponse,
     ),
   ).toBe(true);
@@ -206,12 +286,24 @@ test('test response', () => {
       checkPasswordResponse,
     ),
   ).toBe(true);
+  expect(
+    CheckPasswordResponse.equals(
+      checkPasswordResponse.fromBinary(checkPasswordResponse.toBinary()),
+      checkPasswordResponse,
+    ),
+  ).toBe(true);
   const updatePasswordResponse = new UpdatePasswordResponse({
     wallet,
   });
   expect(
     UpdatePasswordResponse.equals(
       updatePasswordResponse.fromJson(updatePasswordResponse.toJson()),
+      updatePasswordResponse,
+    ),
+  ).toBe(true);
+  expect(
+    UpdatePasswordResponse.equals(
+      updatePasswordResponse.fromBinary(updatePasswordResponse.toBinary()),
       updatePasswordResponse,
     ),
   ).toBe(true);
@@ -224,7 +316,12 @@ test('test response', () => {
       exportMnemonicPhraseResponse,
     ),
   ).toBe(true);
-
+  expect(
+    ExportMnemonicPhraseResponse.equals(
+      exportMnemonicPhraseResponse.fromBinary(exportMnemonicPhraseResponse.toBinary()),
+      exportMnemonicPhraseResponse,
+    ),
+  ).toBe(true);
   const account = new Account({
     id: 'id',
     name: 'name',
@@ -236,10 +333,22 @@ test('test response', () => {
       createAccountResponse,
     ),
   ).toBe(true);
+  expect(
+    CreateAccountResponse.equals(
+      createAccountResponse.fromBinary(createAccountResponse.toBinary()),
+      createAccountResponse,
+    ),
+  ).toBe(true);
   const countAccountResponse = new CountAccountResponse({ count: BigInt(1) });
   expect(
     CountAccountResponse.equals(
       countAccountResponse.fromJson(countAccountResponse.toJson()),
+      countAccountResponse,
+    ),
+  ).toBe(true);
+  expect(
+    CountAccountResponse.equals(
+      countAccountResponse.fromBinary(countAccountResponse.toBinary()),
       countAccountResponse,
     ),
   ).toBe(true);
@@ -249,10 +358,19 @@ test('test response', () => {
   expect(
     FindAccountResponse.equals(accountResponse.fromJson(accountResponse.toJson()), accountResponse),
   ).toBe(true);
+  expect(
+    FindAccountResponse.equals(accountResponse.fromBinary(accountResponse.toBinary()), accountResponse),
+  ).toBe(true);
   const accountByIdentifierResponse = new FindAccountByIdentifierResponse({ account });
   expect(
     FindAccountByIdentifierResponse.equals(
       accountByIdentifierResponse.fromJson(accountByIdentifierResponse.toJson()),
+      accountByIdentifierResponse,
+    ),
+  ).toBe(true);
+  expect(
+    FindAccountByIdentifierResponse.equals(
+      accountByIdentifierResponse.fromBinary(accountByIdentifierResponse.toBinary()),
       accountByIdentifierResponse,
     ),
   ).toBe(true);
@@ -263,6 +381,12 @@ test('test response', () => {
       updateAccountResponse,
     ),
   ).toBe(true);
+  expect(
+    UpdateAccountResponse.equals(
+      updateAccountResponse.fromBinary(updateAccountResponse.toBinary()),
+      updateAccountResponse,
+    ),
+  ).toBe(true);
   const updateEncryptionResponse = new UpdateEncryptionResponse({ account: [account] });
   expect(
     UpdateEncryptionResponse.equals(
@@ -270,10 +394,22 @@ test('test response', () => {
       updateEncryptionResponse,
     ),
   ).toBe(true);
+  expect(
+    UpdateEncryptionResponse.equals(
+      updateEncryptionResponse.fromBinary(updateEncryptionResponse.toBinary()),
+      updateEncryptionResponse,
+    ),
+  ).toBe(true);
   const exportSecretKeyResponse = new ExportSecretKeyResponse({ secretKey: 'secret' });
   expect(
     ExportSecretKeyResponse.equals(
       exportSecretKeyResponse.fromJson(exportSecretKeyResponse.toJson()),
+      exportSecretKeyResponse,
+    ),
+  ).toBe(true);
+  expect(
+    ExportSecretKeyResponse.equals(
+      exportSecretKeyResponse.fromBinary(exportSecretKeyResponse.toBinary()),
       exportSecretKeyResponse,
     ),
   ).toBe(true);
