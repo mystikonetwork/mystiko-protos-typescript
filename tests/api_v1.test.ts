@@ -10,4 +10,5 @@ test('test response', () => {
     result: { value: '123', case: 'errorMessage' },
   });
   expect(ApiResponse.equals(apiResponse.fromJson(apiResponse.toJson()), apiResponse)).toBe(true);
+  expect(ApiResponse.equals(apiResponse.fromBinary(apiResponse.toBinary()), apiResponse)).toBe(true);
 });
