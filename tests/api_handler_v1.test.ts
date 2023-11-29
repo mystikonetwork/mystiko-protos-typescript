@@ -174,9 +174,9 @@ test('test request', () => {
   expect(FindAccountRequest.equals(accountRequest.fromJson(accountRequest.toJson()), accountRequest)).toBe(
     true,
   );
-  expect(FindAccountRequest.equals(accountRequest.fromBinary(accountRequest.toBinary()), accountRequest)).toBe(
-    true,
-  );
+  expect(
+    FindAccountRequest.equals(accountRequest.fromBinary(accountRequest.toBinary()), accountRequest),
+  ).toBe(true);
   const accountByIdentifierRequest = new FindAccountByIdentifierRequest({
     identifier: { value: '123', case: 'id' },
   });

@@ -42,7 +42,9 @@ const {
 test('test config request', () => {
   const configRequest = new GetConfigRequest({});
   expect(GetConfigRequest.equals(configRequest.fromJson(configRequest.toJson()), configRequest)).toBe(true);
-  expect(GetConfigRequest.equals(configRequest.fromBinary(configRequest.toBinary()), configRequest)).toBe(true);
+  expect(GetConfigRequest.equals(configRequest.fromBinary(configRequest.toBinary()), configRequest)).toBe(
+    true,
+  );
   const circuitRequestDefault = new FindDefaultCircuitRequest({
     circuitType: CircuitType.ROLLUP_1,
   });
@@ -64,9 +66,9 @@ test('test config request', () => {
   expect(FindCircuitRequest.equals(circuitRequest.fromJson(circuitRequest.toJson()), circuitRequest)).toBe(
     true,
   );
-  expect(FindCircuitRequest.equals(circuitRequest.fromBinary(circuitRequest.toBinary()), circuitRequest)).toBe(
-    true,
-  );
+  expect(
+    FindCircuitRequest.equals(circuitRequest.fromBinary(circuitRequest.toBinary()), circuitRequest),
+  ).toBe(true);
   const chainRequest = new FindChainRequest({
     chainId: BigInt(1),
   });
@@ -105,14 +107,16 @@ test('test config request', () => {
   expect(FindBridgesRequest.equals(bridgesRequest.fromJson(bridgesRequest.toJson()), bridgesRequest)).toBe(
     true,
   );
-  expect(FindBridgesRequest.equals(bridgesRequest.fromBinary(bridgesRequest.toBinary()), bridgesRequest)).toBe(
-    true,
-  );
+  expect(
+    FindBridgesRequest.equals(bridgesRequest.fromBinary(bridgesRequest.toBinary()), bridgesRequest),
+  ).toBe(true);
   const bridgeRequest = new FindBridgeRequest({
     bridgeType: BridgeType.LOOP,
   });
   expect(FindBridgeRequest.equals(bridgeRequest.fromJson(bridgeRequest.toJson()), bridgeRequest)).toBe(true);
-  expect(FindBridgeRequest.equals(bridgeRequest.fromBinary(bridgeRequest.toBinary()), bridgeRequest)).toBe(true);
+  expect(FindBridgeRequest.equals(bridgeRequest.fromBinary(bridgeRequest.toBinary()), bridgeRequest)).toBe(
+    true,
+  );
   const depositContractRequest = new FindDepositContractRequest({
     chainId: BigInt(1),
     peerChainId: BigInt(56),
@@ -315,7 +319,9 @@ test('test config response', () => {
     config: chainConfig,
   });
   expect(FindChainResponse.equals(chainResponse.fromJson(chainResponse.toJson()), chainResponse)).toBe(true);
-  expect(FindChainResponse.equals(chainResponse.fromBinary(chainResponse.toBinary()), chainResponse)).toBe(true);
+  expect(FindChainResponse.equals(chainResponse.fromBinary(chainResponse.toBinary()), chainResponse)).toBe(
+    true,
+  );
   const peerChainsResponse = new FindPeerChainsResponse({
     configs: [chainConfig],
   });
@@ -361,9 +367,9 @@ test('test config response', () => {
   expect(FindBridgeResponse.equals(bridgeResponse.fromJson(bridgeResponse.toJson()), bridgeResponse)).toBe(
     true,
   );
-  expect(FindBridgeResponse.equals(bridgeResponse.fromBinary(bridgeResponse.toBinary()), bridgeResponse)).toBe(
-    true,
-  );
+  expect(
+    FindBridgeResponse.equals(bridgeResponse.fromBinary(bridgeResponse.toBinary()), bridgeResponse),
+  ).toBe(true);
   const depositContractResponse = new FindDepositContractResponse({
     config: depositConfig,
   });
