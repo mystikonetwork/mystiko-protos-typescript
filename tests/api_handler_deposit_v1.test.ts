@@ -1,4 +1,6 @@
-import {
+import { api, core, storage, service } from '../src';
+
+const {
   ColumnValuePair,
   CountDepositRequest,
   CountDepositResponse,
@@ -24,18 +26,11 @@ import {
   UpdateDepositByFilterRequest,
   UpdateDepositRequest,
   UpdateDepositResponse,
-} from '../buf_gen/mystiko/api/handler/v1/deposit_pb';
-import { Deposit } from '../buf_gen/mystiko/core/document/v1/deposit_pb';
-import {
-  CreateDepositOptions,
-  DepositQuote,
-  DepositSummary,
-  QuoteDepositOptions,
-  SendDepositOptions,
-} from '../buf_gen/mystiko/core/handler/v1/deposit_pb';
-import { ClientOptions } from '../buf_gen/mystiko/service/v1/client_pb';
-import { storage } from '../src';
-
+} = api.v1;
+const { Deposit } = core.document.v1;
+const { CreateDepositOptions, DepositQuote, DepositSummary, QuoteDepositOptions, SendDepositOptions } =
+  core.handler.v1;
+const { ClientOptions } = service.v1;
 const { Condition, ConditionOperator, Order, OrderBy, QueryFilter, SubFilter, SubFilterOperator } =
   storage.v1;
 
