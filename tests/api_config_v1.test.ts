@@ -5,7 +5,6 @@ const { BridgeConfig } = config.bridge.v1;
 const { ContractConfig, DepositContractConfig, PoolContractConfig } = config.contract.v1;
 const { AssetConfig, ProviderConfig, ChainConfig, CircuitConfig, MystikoConfig } = config.v1;
 const {
-  GetConfigRequest,
   FindDefaultCircuitRequest,
   FindCircuitRequest,
   FindChainRequest,
@@ -40,48 +39,48 @@ const {
 } = api.v1;
 
 test('test config request', () => {
-  const configRequest = new GetConfigRequest({});
-  expect(GetConfigRequest.equals(configRequest.fromJson(configRequest.toJson()), configRequest)).toBe(true);
-  expect(GetConfigRequest.equals(configRequest.fromBinary(configRequest.toBinary()), configRequest)).toBe(
-    true,
-  );
   const circuitRequestDefault = new FindDefaultCircuitRequest({
     circuitType: CircuitType.ROLLUP_1,
   });
   expect(
     FindDefaultCircuitRequest.equals(
-      circuitRequestDefault.fromJson(circuitRequestDefault.toJson()),
+      FindDefaultCircuitRequest.fromJson(circuitRequestDefault.toJson()),
       circuitRequestDefault,
     ),
   ).toBe(true);
   expect(
     FindDefaultCircuitRequest.equals(
-      circuitRequestDefault.fromBinary(circuitRequestDefault.toBinary()),
+      FindDefaultCircuitRequest.fromBinary(circuitRequestDefault.toBinary()),
       circuitRequestDefault,
     ),
   ).toBe(true);
   const circuitRequest = new FindCircuitRequest({
     circuitName: 'rollup1',
   });
-  expect(FindCircuitRequest.equals(circuitRequest.fromJson(circuitRequest.toJson()), circuitRequest)).toBe(
-    true,
-  );
   expect(
-    FindCircuitRequest.equals(circuitRequest.fromBinary(circuitRequest.toBinary()), circuitRequest),
+    FindCircuitRequest.equals(FindCircuitRequest.fromJson(circuitRequest.toJson()), circuitRequest),
+  ).toBe(true);
+  expect(
+    FindCircuitRequest.equals(FindCircuitRequest.fromBinary(circuitRequest.toBinary()), circuitRequest),
   ).toBe(true);
   const chainRequest = new FindChainRequest({
     chainId: BigInt(1),
   });
-  expect(FindChainRequest.equals(chainRequest.fromJson(chainRequest.toJson()), chainRequest)).toBe(true);
-  expect(FindChainRequest.equals(chainRequest.fromBinary(chainRequest.toBinary()), chainRequest)).toBe(true);
+  expect(FindChainRequest.equals(FindChainRequest.fromJson(chainRequest.toJson()), chainRequest)).toBe(true);
+  expect(FindChainRequest.equals(FindChainRequest.fromBinary(chainRequest.toBinary()), chainRequest)).toBe(
+    true,
+  );
   const peerChainRequest = new FindPeerChainsRequest({
     chainId: BigInt(1),
   });
   expect(
-    FindPeerChainsRequest.equals(peerChainRequest.fromJson(peerChainRequest.toJson()), peerChainRequest),
+    FindPeerChainsRequest.equals(FindPeerChainsRequest.fromJson(peerChainRequest.toJson()), peerChainRequest),
   ).toBe(true);
   expect(
-    FindPeerChainsRequest.equals(peerChainRequest.fromBinary(peerChainRequest.toBinary()), peerChainRequest),
+    FindPeerChainsRequest.equals(
+      FindPeerChainsRequest.fromBinary(peerChainRequest.toBinary()),
+      peerChainRequest,
+    ),
   ).toBe(true);
   const assetSymbolsRequest = new FindAssetSymbolsRequest({
     chainId: BigInt(1),
@@ -89,13 +88,13 @@ test('test config request', () => {
   });
   expect(
     FindAssetSymbolsRequest.equals(
-      assetSymbolsRequest.fromJson(assetSymbolsRequest.toJson()),
+      FindAssetSymbolsRequest.fromJson(assetSymbolsRequest.toJson()),
       assetSymbolsRequest,
     ),
   ).toBe(true);
   expect(
     FindAssetSymbolsRequest.equals(
-      assetSymbolsRequest.fromBinary(assetSymbolsRequest.toBinary()),
+      FindAssetSymbolsRequest.fromBinary(assetSymbolsRequest.toBinary()),
       assetSymbolsRequest,
     ),
   ).toBe(true);
@@ -104,19 +103,21 @@ test('test config request', () => {
     peerChainId: BigInt(56),
     assetSymbol: 'USDC',
   });
-  expect(FindBridgesRequest.equals(bridgesRequest.fromJson(bridgesRequest.toJson()), bridgesRequest)).toBe(
-    true,
-  );
   expect(
-    FindBridgesRequest.equals(bridgesRequest.fromBinary(bridgesRequest.toBinary()), bridgesRequest),
+    FindBridgesRequest.equals(FindBridgesRequest.fromJson(bridgesRequest.toJson()), bridgesRequest),
+  ).toBe(true);
+  expect(
+    FindBridgesRequest.equals(FindBridgesRequest.fromBinary(bridgesRequest.toBinary()), bridgesRequest),
   ).toBe(true);
   const bridgeRequest = new FindBridgeRequest({
     bridgeType: BridgeType.LOOP,
   });
-  expect(FindBridgeRequest.equals(bridgeRequest.fromJson(bridgeRequest.toJson()), bridgeRequest)).toBe(true);
-  expect(FindBridgeRequest.equals(bridgeRequest.fromBinary(bridgeRequest.toBinary()), bridgeRequest)).toBe(
+  expect(FindBridgeRequest.equals(FindBridgeRequest.fromJson(bridgeRequest.toJson()), bridgeRequest)).toBe(
     true,
   );
+  expect(
+    FindBridgeRequest.equals(FindBridgeRequest.fromBinary(bridgeRequest.toBinary()), bridgeRequest),
+  ).toBe(true);
   const depositContractRequest = new FindDepositContractRequest({
     chainId: BigInt(1),
     peerChainId: BigInt(56),
@@ -125,13 +126,13 @@ test('test config request', () => {
   });
   expect(
     FindDepositContractRequest.equals(
-      depositContractRequest.fromJson(depositContractRequest.toJson()),
+      FindDepositContractRequest.fromJson(depositContractRequest.toJson()),
       depositContractRequest,
     ),
   ).toBe(true);
   expect(
     FindDepositContractRequest.equals(
-      depositContractRequest.fromBinary(depositContractRequest.toBinary()),
+      FindDepositContractRequest.fromBinary(depositContractRequest.toBinary()),
       depositContractRequest,
     ),
   ).toBe(true);
@@ -141,13 +142,13 @@ test('test config request', () => {
   });
   expect(
     FindDepositContractByAddressRequest.equals(
-      depositContractByAddressRequest.fromJson(depositContractByAddressRequest.toJson()),
+      FindDepositContractByAddressRequest.fromJson(depositContractByAddressRequest.toJson()),
       depositContractByAddressRequest,
     ),
   ).toBe(true);
   expect(
     FindDepositContractByAddressRequest.equals(
-      depositContractByAddressRequest.fromBinary(depositContractByAddressRequest.toBinary()),
+      FindDepositContractByAddressRequest.fromBinary(depositContractByAddressRequest.toBinary()),
       depositContractByAddressRequest,
     ),
   ).toBe(true);
@@ -159,13 +160,13 @@ test('test config request', () => {
   });
   expect(
     FindPoolContractRequest.equals(
-      poolContractRequest.fromJson(poolContractRequest.toJson()),
+      FindPoolContractRequest.fromJson(poolContractRequest.toJson()),
       poolContractRequest,
     ),
   ).toBe(true);
   expect(
     FindPoolContractRequest.equals(
-      poolContractRequest.fromBinary(poolContractRequest.toBinary()),
+      FindPoolContractRequest.fromBinary(poolContractRequest.toBinary()),
       poolContractRequest,
     ),
   ).toBe(true);
@@ -176,13 +177,13 @@ test('test config request', () => {
   });
   expect(
     FindPoolContractsRequest.equals(
-      poolContractsRequest.fromJson(poolContractsRequest.toJson()),
+      FindPoolContractsRequest.fromJson(poolContractsRequest.toJson()),
       poolContractsRequest,
     ),
   ).toBe(true);
   expect(
     FindPoolContractsRequest.equals(
-      poolContractsRequest.fromBinary(poolContractsRequest.toBinary()),
+      FindPoolContractsRequest.fromBinary(poolContractsRequest.toBinary()),
       poolContractsRequest,
     ),
   ).toBe(true);
@@ -192,13 +193,13 @@ test('test config request', () => {
   });
   expect(
     FindPoolContractByAddressRequest.equals(
-      poolContractByAddressRequest.fromJson(poolContractByAddressRequest.toJson()),
+      FindPoolContractByAddressRequest.fromJson(poolContractByAddressRequest.toJson()),
       poolContractByAddressRequest,
     ),
   ).toBe(true);
   expect(
     FindPoolContractByAddressRequest.equals(
-      poolContractByAddressRequest.fromBinary(poolContractByAddressRequest.toBinary()),
+      FindPoolContractByAddressRequest.fromBinary(poolContractByAddressRequest.toBinary()),
       poolContractByAddressRequest,
     ),
   ).toBe(true);
@@ -208,13 +209,13 @@ test('test config request', () => {
   });
   expect(
     FindContractByAddressRequest.equals(
-      contractByAddressRequest.fromJson(contractByAddressRequest.toJson()),
+      FindContractByAddressRequest.fromJson(contractByAddressRequest.toJson()),
       contractByAddressRequest,
     ),
   ).toBe(true);
   expect(
     FindContractByAddressRequest.equals(
-      contractByAddressRequest.fromBinary(contractByAddressRequest.toBinary()),
+      FindContractByAddressRequest.fromBinary(contractByAddressRequest.toBinary()),
       contractByAddressRequest,
     ),
   ).toBe(true);
@@ -224,13 +225,13 @@ test('test config request', () => {
   });
   expect(
     GetTransactionUrlRequest.equals(
-      transactionUrlRequest.fromJson(transactionUrlRequest.toJson()),
+      GetTransactionUrlRequest.fromJson(transactionUrlRequest.toJson()),
       transactionUrlRequest,
     ),
   ).toBe(true);
   expect(
     GetTransactionUrlRequest.equals(
-      transactionUrlRequest.fromBinary(transactionUrlRequest.toBinary()),
+      GetTransactionUrlRequest.fromBinary(transactionUrlRequest.toBinary()),
       transactionUrlRequest,
     ),
   ).toBe(true);
@@ -285,24 +286,24 @@ test('test config response', () => {
       circuitConfigs: [circuitConfig],
     }),
   });
-  expect(GetConfigResponse.equals(configResponse.fromJson(configResponse.toJson()), configResponse)).toBe(
+  expect(GetConfigResponse.equals(GetConfigResponse.fromJson(configResponse.toJson()), configResponse)).toBe(
     true,
   );
-  expect(GetConfigResponse.equals(configResponse.fromBinary(configResponse.toBinary()), configResponse)).toBe(
-    true,
-  );
+  expect(
+    GetConfigResponse.equals(GetConfigResponse.fromBinary(configResponse.toBinary()), configResponse),
+  ).toBe(true);
   const defaultCircuitResponse = new FindDefaultCircuitResponse({
     config: circuitConfig,
   });
   expect(
     FindDefaultCircuitResponse.equals(
-      defaultCircuitResponse.fromJson(defaultCircuitResponse.toJson()),
+      FindDefaultCircuitResponse.fromJson(defaultCircuitResponse.toJson()),
       defaultCircuitResponse,
     ),
   ).toBe(true);
   expect(
     FindDefaultCircuitResponse.equals(
-      defaultCircuitResponse.fromBinary(defaultCircuitResponse.toBinary()),
+      FindDefaultCircuitResponse.fromBinary(defaultCircuitResponse.toBinary()),
       defaultCircuitResponse,
     ),
   ).toBe(true);
@@ -310,30 +311,32 @@ test('test config response', () => {
     config: circuitConfig,
   });
   expect(
-    FindCircuitResponse.equals(circuitResponse.fromJson(circuitResponse.toJson()), circuitResponse),
+    FindCircuitResponse.equals(FindCircuitResponse.fromJson(circuitResponse.toJson()), circuitResponse),
   ).toBe(true);
   expect(
-    FindCircuitResponse.equals(circuitResponse.fromBinary(circuitResponse.toBinary()), circuitResponse),
+    FindCircuitResponse.equals(FindCircuitResponse.fromBinary(circuitResponse.toBinary()), circuitResponse),
   ).toBe(true);
   const chainResponse = new FindChainResponse({
     config: chainConfig,
   });
-  expect(FindChainResponse.equals(chainResponse.fromJson(chainResponse.toJson()), chainResponse)).toBe(true);
-  expect(FindChainResponse.equals(chainResponse.fromBinary(chainResponse.toBinary()), chainResponse)).toBe(
+  expect(FindChainResponse.equals(FindChainResponse.fromJson(chainResponse.toJson()), chainResponse)).toBe(
     true,
   );
+  expect(
+    FindChainResponse.equals(FindChainResponse.fromBinary(chainResponse.toBinary()), chainResponse),
+  ).toBe(true);
   const peerChainsResponse = new FindPeerChainsResponse({
     configs: [chainConfig],
   });
   expect(
     FindPeerChainsResponse.equals(
-      peerChainsResponse.fromJson(peerChainsResponse.toJson()),
+      FindPeerChainsResponse.fromJson(peerChainsResponse.toJson()),
       peerChainsResponse,
     ),
   ).toBe(true);
   expect(
     FindPeerChainsResponse.equals(
-      peerChainsResponse.fromBinary(peerChainsResponse.toBinary()),
+      FindPeerChainsResponse.fromBinary(peerChainsResponse.toBinary()),
       peerChainsResponse,
     ),
   ).toBe(true);
@@ -342,13 +345,13 @@ test('test config response', () => {
   });
   expect(
     FindAssetSymbolsResponse.equals(
-      assetSymbolsResponse.fromJson(assetSymbolsResponse.toJson()),
+      FindAssetSymbolsResponse.fromJson(assetSymbolsResponse.toJson()),
       assetSymbolsResponse,
     ),
   ).toBe(true);
   expect(
     FindAssetSymbolsResponse.equals(
-      assetSymbolsResponse.fromBinary(assetSymbolsResponse.toBinary()),
+      FindAssetSymbolsResponse.fromBinary(assetSymbolsResponse.toBinary()),
       assetSymbolsResponse,
     ),
   ).toBe(true);
@@ -356,32 +359,32 @@ test('test config response', () => {
     bridgeType: [BridgeType.TBRIDGE, BridgeType.LOOP],
   });
   expect(
-    FindBridgesResponse.equals(bridgesResponse.fromJson(bridgesResponse.toJson()), bridgesResponse),
+    FindBridgesResponse.equals(FindBridgesResponse.fromJson(bridgesResponse.toJson()), bridgesResponse),
   ).toBe(true);
   expect(
-    FindBridgesResponse.equals(bridgesResponse.fromBinary(bridgesResponse.toBinary()), bridgesResponse),
+    FindBridgesResponse.equals(FindBridgesResponse.fromBinary(bridgesResponse.toBinary()), bridgesResponse),
   ).toBe(true);
   const bridgeResponse = new FindBridgeResponse({
     config: bridgeConfig,
   });
-  expect(FindBridgeResponse.equals(bridgeResponse.fromJson(bridgeResponse.toJson()), bridgeResponse)).toBe(
-    true,
-  );
   expect(
-    FindBridgeResponse.equals(bridgeResponse.fromBinary(bridgeResponse.toBinary()), bridgeResponse),
+    FindBridgeResponse.equals(FindBridgeResponse.fromJson(bridgeResponse.toJson()), bridgeResponse),
+  ).toBe(true);
+  expect(
+    FindBridgeResponse.equals(FindBridgeResponse.fromBinary(bridgeResponse.toBinary()), bridgeResponse),
   ).toBe(true);
   const depositContractResponse = new FindDepositContractResponse({
     config: depositConfig,
   });
   expect(
     FindDepositContractResponse.equals(
-      depositContractResponse.fromJson(depositContractResponse.toJson()),
+      FindDepositContractResponse.fromJson(depositContractResponse.toJson()),
       depositContractResponse,
     ),
   ).toBe(true);
   expect(
     FindDepositContractResponse.equals(
-      depositContractResponse.fromBinary(depositContractResponse.toBinary()),
+      FindDepositContractResponse.fromBinary(depositContractResponse.toBinary()),
       depositContractResponse,
     ),
   ).toBe(true);
@@ -390,13 +393,13 @@ test('test config response', () => {
   });
   expect(
     FindDepositContractByAddressResponse.equals(
-      depositContractByAddressResponse.fromJson(depositContractByAddressResponse.toJson()),
+      FindDepositContractByAddressResponse.fromJson(depositContractByAddressResponse.toJson()),
       depositContractByAddressResponse,
     ),
   ).toBe(true);
   expect(
     FindDepositContractByAddressResponse.equals(
-      depositContractByAddressResponse.fromBinary(depositContractByAddressResponse.toBinary()),
+      FindDepositContractByAddressResponse.fromBinary(depositContractByAddressResponse.toBinary()),
       depositContractByAddressResponse,
     ),
   ).toBe(true);
@@ -405,13 +408,13 @@ test('test config response', () => {
   });
   expect(
     FindPoolContractResponse.equals(
-      poolContractResponse.fromJson(poolContractResponse.toJson()),
+      FindPoolContractResponse.fromJson(poolContractResponse.toJson()),
       poolContractResponse,
     ),
   ).toBe(true);
   expect(
     FindPoolContractResponse.equals(
-      poolContractResponse.fromBinary(poolContractResponse.toBinary()),
+      FindPoolContractResponse.fromBinary(poolContractResponse.toBinary()),
       poolContractResponse,
     ),
   ).toBe(true);
@@ -420,13 +423,13 @@ test('test config response', () => {
   });
   expect(
     FindPoolContractsResponse.equals(
-      poolContractsResponse.fromJson(poolContractsResponse.toJson()),
+      FindPoolContractsResponse.fromJson(poolContractsResponse.toJson()),
       poolContractsResponse,
     ),
   ).toBe(true);
   expect(
     FindPoolContractsResponse.equals(
-      poolContractsResponse.fromBinary(poolContractsResponse.toBinary()),
+      FindPoolContractsResponse.fromBinary(poolContractsResponse.toBinary()),
       poolContractsResponse,
     ),
   ).toBe(true);
@@ -435,13 +438,13 @@ test('test config response', () => {
   });
   expect(
     FindPoolContractByAddressResponse.equals(
-      poolContractByAddressResponse.fromJson(poolContractByAddressResponse.toJson()),
+      FindPoolContractByAddressResponse.fromJson(poolContractByAddressResponse.toJson()),
       poolContractByAddressResponse,
     ),
   ).toBe(true);
   expect(
     FindPoolContractByAddressResponse.equals(
-      poolContractByAddressResponse.fromBinary(poolContractByAddressResponse.toBinary()),
+      FindPoolContractByAddressResponse.fromBinary(poolContractByAddressResponse.toBinary()),
       poolContractByAddressResponse,
     ),
   ).toBe(true);
@@ -450,13 +453,13 @@ test('test config response', () => {
   });
   expect(
     FindContractByAddressResponse.equals(
-      contractByAddressResponse.fromJson(contractByAddressResponse.toJson()),
+      FindContractByAddressResponse.fromJson(contractByAddressResponse.toJson()),
       contractByAddressResponse,
     ),
   ).toBe(true);
   expect(
     FindContractByAddressResponse.equals(
-      contractByAddressResponse.fromBinary(contractByAddressResponse.toBinary()),
+      FindContractByAddressResponse.fromBinary(contractByAddressResponse.toBinary()),
       contractByAddressResponse,
     ),
   ).toBe(true);
@@ -465,13 +468,13 @@ test('test config response', () => {
   });
   expect(
     GetTransactionUrlResponse.equals(
-      transactionUrlResponse.fromJson(transactionUrlResponse.toJson()),
+      GetTransactionUrlResponse.fromJson(transactionUrlResponse.toJson()),
       transactionUrlResponse,
     ),
   ).toBe(true);
   expect(
     GetTransactionUrlResponse.equals(
-      transactionUrlResponse.fromBinary(transactionUrlResponse.toBinary()),
+      GetTransactionUrlResponse.fromBinary(transactionUrlResponse.toBinary()),
       transactionUrlResponse,
     ),
   ).toBe(true);

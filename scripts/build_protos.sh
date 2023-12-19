@@ -20,6 +20,7 @@ mkdir -p "${ROOT}/src/gen/mystiko/api"
 mkdir -p "${ROOT}/src/gen/mystiko/data/v1"
 mkdir -p "${ROOT}/src/gen/mystiko/loader/v1"
 mkdir -p "${ROOT}/src/gen/mystiko/sequencer/v1"
+mkdir -p "${ROOT}/src/gen/mystiko/relayer/v1"
 
 cp -r "${ROOT}"/buf_gen/mystiko/config/* "${ROOT}"/src/gen/mystiko/config
 cp -r "${ROOT}"/buf_gen/mystiko/common/* "${ROOT}"/src/gen/mystiko/common
@@ -30,5 +31,6 @@ cp -r "${ROOT}"/buf_gen/mystiko/api/* "${ROOT}"/src/gen/mystiko/api
 cp "${ROOT}"/buf_gen/mystiko/data/v1/* "${ROOT}"/src/gen/mystiko/data/v1
 cp "${ROOT}"/buf_gen/mystiko/loader/v1/* "${ROOT}"/src/gen/mystiko/loader/v1
 cp "${ROOT}"/buf_gen/mystiko/sequencer/v1/* "${ROOT}"/src/gen/mystiko/sequencer/v1
+cp "${ROOT}"/buf_gen/mystiko/relayer/v1/* "${ROOT}"/src/gen/mystiko/relayer/v1
 
 yarn prettier:fix
