@@ -3,14 +3,14 @@ import { api, core } from '../src';
 const { Wallet } = core.document.v1;
 const { CreateWalletOptions } = core.handler.v1;
 const { CreateWalletRequest, CheckPasswordRequest, UpdatePasswordRequest, ExportMnemonicPhraseRequest } =
-  api.v1;
+  api.handler.v1;
 const {
   CreateWalletResponse,
   CheckCurrentResponse,
   CheckPasswordResponse,
   UpdatePasswordResponse,
   ExportMnemonicPhraseResponse,
-} = api.v1;
+} = api.handler.v1;
 
 test('test request', () => {
   const createWalletRequest = new CreateWalletRequest({

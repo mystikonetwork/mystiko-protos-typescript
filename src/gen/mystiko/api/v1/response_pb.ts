@@ -530,53 +530,53 @@ proto3.util.setEnumType(ScannerError, 'mystiko.api.v1.ScannerError', [
 ]);
 
 /**
- * @generated from enum mystiko.api.v1.SynchronizeError
+ * @generated from enum mystiko.api.v1.SynchronizerError
  */
-export enum SynchronizeError {
+export enum SynchronizerError {
   /**
-   * @generated from enum value: SYNCHRONIZE_ERROR_UNSPECIFIED = 0;
+   * @generated from enum value: SYNCHRONIZER_ERROR_UNSPECIFIED = 0;
    */
   UNSPECIFIED = 0,
 
   /**
-   * @generated from enum value: SYNCHRONIZE_ERROR_UNSUPPORTED_CHAIN_ERROR = 1;
+   * @generated from enum value: SYNCHRONIZER_ERROR_UNSUPPORTED_CHAIN_ERROR = 1;
    */
   UNSUPPORTED_CHAIN_ERROR = 1,
 
   /**
-   * @generated from enum value: SYNCHRONIZE_ERROR_DATALOADER_ERROR = 2;
+   * @generated from enum value: SYNCHRONIZER_ERROR_DATALOADER_ERROR = 2;
    */
   DATALOADER_ERROR = 2,
 
   /**
-   * @generated from enum value: SYNCHRONIZE_ERROR_DATALOADER_CONFIG_ERROR = 3;
+   * @generated from enum value: SYNCHRONIZER_ERROR_DATALOADER_CONFIG_ERROR = 3;
    */
   DATALOADER_CONFIG_ERROR = 3,
 
   /**
-   * @generated from enum value: SYNCHRONIZE_ERROR_ANYHOW_ERROR = 4;
+   * @generated from enum value: SYNCHRONIZER_ERROR_ANYHOW_ERROR = 4;
    */
   ANYHOW_ERROR = 4,
 
   /**
-   * @generated from enum value: SYNCHRONIZE_ERROR_GET_MYSTIKO_GUARD_ERROR = 5;
+   * @generated from enum value: SYNCHRONIZER_ERROR_GET_MYSTIKO_GUARD_ERROR = 5;
    */
   GET_MYSTIKO_GUARD_ERROR = 5,
 
   /**
-   * @generated from enum value: SYNCHRONIZE_ERROR_DESERIALIZE_MESSAGE_ERROR = 6;
+   * @generated from enum value: SYNCHRONIZER_ERROR_DESERIALIZE_MESSAGE_ERROR = 6;
    */
   DESERIALIZE_MESSAGE_ERROR = 6,
 }
-// Retrieve enum metadata with: proto3.getEnumType(SynchronizeError)
-proto3.util.setEnumType(SynchronizeError, 'mystiko.api.v1.SynchronizeError', [
-  { no: 0, name: 'SYNCHRONIZE_ERROR_UNSPECIFIED' },
-  { no: 1, name: 'SYNCHRONIZE_ERROR_UNSUPPORTED_CHAIN_ERROR' },
-  { no: 2, name: 'SYNCHRONIZE_ERROR_DATALOADER_ERROR' },
-  { no: 3, name: 'SYNCHRONIZE_ERROR_DATALOADER_CONFIG_ERROR' },
-  { no: 4, name: 'SYNCHRONIZE_ERROR_ANYHOW_ERROR' },
-  { no: 5, name: 'SYNCHRONIZE_ERROR_GET_MYSTIKO_GUARD_ERROR' },
-  { no: 6, name: 'SYNCHRONIZE_ERROR_DESERIALIZE_MESSAGE_ERROR' },
+// Retrieve enum metadata with: proto3.getEnumType(SynchronizerError)
+proto3.util.setEnumType(SynchronizerError, 'mystiko.api.v1.SynchronizerError', [
+  { no: 0, name: 'SYNCHRONIZER_ERROR_UNSPECIFIED' },
+  { no: 1, name: 'SYNCHRONIZER_ERROR_UNSUPPORTED_CHAIN_ERROR' },
+  { no: 2, name: 'SYNCHRONIZER_ERROR_DATALOADER_ERROR' },
+  { no: 3, name: 'SYNCHRONIZER_ERROR_DATALOADER_CONFIG_ERROR' },
+  { no: 4, name: 'SYNCHRONIZER_ERROR_ANYHOW_ERROR' },
+  { no: 5, name: 'SYNCHRONIZER_ERROR_GET_MYSTIKO_GUARD_ERROR' },
+  { no: 6, name: 'SYNCHRONIZER_ERROR_DESERIALIZE_MESSAGE_ERROR' },
 ]);
 
 /**
@@ -691,10 +691,10 @@ export class StatusCode extends Message<StatusCode> {
       }
     | {
         /**
-         * @generated from field: mystiko.api.v1.SynchronizeError synchronize = 7;
+         * @generated from field: mystiko.api.v1.SynchronizerError synchronizer = 7;
          */
-        value: SynchronizeError;
-        case: 'synchronize';
+        value: SynchronizerError;
+        case: 'synchronizer';
       }
     | {
         /**
@@ -719,7 +719,7 @@ export class StatusCode extends Message<StatusCode> {
     { no: 4, name: 'account', kind: 'enum', T: proto3.getEnumType(AccountError), oneof: 'error' },
     { no: 5, name: 'deposit', kind: 'enum', T: proto3.getEnumType(DepositError), oneof: 'error' },
     { no: 6, name: 'scanner', kind: 'enum', T: proto3.getEnumType(ScannerError), oneof: 'error' },
-    { no: 7, name: 'synchronize', kind: 'enum', T: proto3.getEnumType(SynchronizeError), oneof: 'error' },
+    { no: 7, name: 'synchronizer', kind: 'enum', T: proto3.getEnumType(SynchronizerError), oneof: 'error' },
     { no: 8, name: 'config', kind: 'enum', T: proto3.getEnumType(ConfigError), oneof: 'error' },
   ]);
 

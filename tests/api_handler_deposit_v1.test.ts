@@ -26,7 +26,7 @@ const {
   UpdateDepositByFilterRequest,
   UpdateDepositRequest,
   UpdateDepositResponse,
-} = api.v1;
+} = api.handler.v1;
 const { Deposit } = core.document.v1;
 const { CreateDepositOptions, DepositQuote, DepositSummary, QuoteDepositOptions, SendDepositOptions } =
   core.handler.v1;

@@ -130,6 +130,11 @@ export class EtherscanFetcherConfig extends Message<EtherscanFetcherConfig> {
    */
   skipValidation?: boolean;
 
+  /**
+   * @generated from field: optional uint32 target_block_priority = 4;
+   */
+  targetBlockPriority?: number;
+
   constructor(data?: PartialMessage<EtherscanFetcherConfig>) {
     super();
     proto3.util.initPartial(data, this);
@@ -147,6 +152,7 @@ export class EtherscanFetcherConfig extends Message<EtherscanFetcherConfig> {
       V: { kind: 'message', T: EtherscanFetcherChainConfig },
     },
     { no: 3, name: 'skip_validation', kind: 'scalar', T: 8 /* ScalarType.BOOL */, opt: true },
+    { no: 4, name: 'target_block_priority', kind: 'scalar', T: 13 /* ScalarType.UINT32 */, opt: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): EtherscanFetcherConfig {
@@ -263,6 +269,11 @@ export class ProviderFetcherConfig extends Message<ProviderFetcherConfig> {
    */
   skipValidation?: boolean;
 
+  /**
+   * @generated from field: optional uint32 target_block_priority = 5;
+   */
+  targetBlockPriority?: number;
+
   constructor(data?: PartialMessage<ProviderFetcherConfig>) {
     super();
     proto3.util.initPartial(data, this);
@@ -281,6 +292,7 @@ export class ProviderFetcherConfig extends Message<ProviderFetcherConfig> {
       V: { kind: 'message', T: ProviderFetcherChainConfig },
     },
     { no: 4, name: 'skip_validation', kind: 'scalar', T: 8 /* ScalarType.BOOL */, opt: true },
+    { no: 5, name: 'target_block_priority', kind: 'scalar', T: 13 /* ScalarType.UINT32 */, opt: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ProviderFetcherConfig {
@@ -370,6 +382,11 @@ export class PackerFetcherConfig extends Message<PackerFetcherConfig> {
    */
   skipValidation?: boolean;
 
+  /**
+   * @generated from field: optional uint32 target_block_priority = 2;
+   */
+  targetBlockPriority?: number;
+
   constructor(data?: PartialMessage<PackerFetcherConfig>) {
     super();
     proto3.util.initPartial(data, this);
@@ -379,6 +396,7 @@ export class PackerFetcherConfig extends Message<PackerFetcherConfig> {
   static readonly typeName = 'mystiko.loader.v1.PackerFetcherConfig';
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: 'skip_validation', kind: 'scalar', T: 8 /* ScalarType.BOOL */, opt: true },
+    { no: 2, name: 'target_block_priority', kind: 'scalar', T: 13 /* ScalarType.UINT32 */, opt: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): PackerFetcherConfig {
@@ -411,7 +429,12 @@ export class SequencerFetcherConfig extends Message<SequencerFetcherConfig> {
   skipValidation?: boolean;
 
   /**
-   * @generated from field: optional mystiko.service.v1.ClientOptions options = 2;
+   * @generated from field: optional uint32 target_block_priority = 2;
+   */
+  targetBlockPriority?: number;
+
+  /**
+   * @generated from field: optional mystiko.service.v1.ClientOptions options = 3;
    */
   options?: ClientOptions;
 
@@ -424,7 +447,8 @@ export class SequencerFetcherConfig extends Message<SequencerFetcherConfig> {
   static readonly typeName = 'mystiko.loader.v1.SequencerFetcherConfig';
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: 'skip_validation', kind: 'scalar', T: 8 /* ScalarType.BOOL */, opt: true },
-    { no: 2, name: 'options', kind: 'message', T: ClientOptions, opt: true },
+    { no: 2, name: 'target_block_priority', kind: 'scalar', T: 13 /* ScalarType.UINT32 */, opt: true },
+    { no: 3, name: 'options', kind: 'message', T: ClientOptions, opt: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): SequencerFetcherConfig {
