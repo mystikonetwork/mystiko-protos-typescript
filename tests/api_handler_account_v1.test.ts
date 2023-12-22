@@ -12,7 +12,7 @@ const {
   UpdateAccountRequest,
   UpdateEncryptionRequest,
   ExportSecretKeyRequest,
-} = api.v1;
+} = api.handler.v1;
 const {
   CreateAccountResponse,
   CountAccountResponse,
@@ -21,7 +21,7 @@ const {
   UpdateAccountResponse,
   UpdateEncryptionResponse,
   ExportSecretKeyResponse,
-} = api.v1;
+} = api.handler.v1;
 
 test('test request', () => {
   const createAccountRequest = new CreateAccountRequest({
@@ -79,10 +79,7 @@ test('test request', () => {
     ),
   ).toBe(true);
   const accountRequest = new FindAccountRequest({
-    condition: {
-      value: queryFilter,
-      case: 'filter',
-    },
+    filter: queryFilter,
   });
   expect(
     FindAccountRequest.equals(FindAccountRequest.fromJson(accountRequest.toJson()), accountRequest),
@@ -91,7 +88,7 @@ test('test request', () => {
     FindAccountRequest.equals(FindAccountRequest.fromBinary(accountRequest.toBinary()), accountRequest),
   ).toBe(true);
   const accountByIdentifierRequest = new FindAccountByIdentifierRequest({
-    identifier: { value: '123', case: 'id' },
+    identifier: 'id123456',
   });
   expect(
     FindAccountByIdentifierRequest.equals(
@@ -106,7 +103,7 @@ test('test request', () => {
     ),
   ).toBe(true);
   const updateAccountRequest = new UpdateAccountRequest({
-    identifier: { value: '123', case: 'id' },
+    identifier: 'id123456',
   });
   expect(
     UpdateAccountRequest.equals(
@@ -137,7 +134,7 @@ test('test request', () => {
     ),
   ).toBe(true);
   const exportSecretKeyRequest = new ExportSecretKeyRequest({
-    identifier: { value: '123', case: 'id' },
+    identifier: 'id123456',
   });
   expect(
     ExportSecretKeyRequest.equals(

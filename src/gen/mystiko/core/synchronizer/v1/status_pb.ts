@@ -74,7 +74,12 @@ export class ChainStatus extends Message<ChainStatus> {
   syncedBlock = protoInt64.zero;
 
   /**
-   * @generated from field: repeated mystiko.core.synchronizer.v1.ContractStatus contracts = 3;
+   * @generated from field: uint64 target_block = 3;
+   */
+  targetBlock = protoInt64.zero;
+
+  /**
+   * @generated from field: repeated mystiko.core.synchronizer.v1.ContractStatus contracts = 4;
    */
   contracts: ContractStatus[] = [];
 
@@ -88,7 +93,8 @@ export class ChainStatus extends Message<ChainStatus> {
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: 'chain_id', kind: 'scalar', T: 4 /* ScalarType.UINT64 */ },
     { no: 2, name: 'synced_block', kind: 'scalar', T: 4 /* ScalarType.UINT64 */ },
-    { no: 3, name: 'contracts', kind: 'message', T: ContractStatus, repeated: true },
+    { no: 3, name: 'target_block', kind: 'scalar', T: 4 /* ScalarType.UINT64 */ },
+    { no: 4, name: 'contracts', kind: 'message', T: ContractStatus, repeated: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ChainStatus {

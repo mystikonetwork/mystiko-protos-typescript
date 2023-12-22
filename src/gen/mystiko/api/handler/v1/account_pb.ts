@@ -101,24 +101,9 @@ export class CountAccountRequest extends Message<CountAccountRequest> {
  */
 export class FindAccountRequest extends Message<FindAccountRequest> {
   /**
-   * @generated from oneof mystiko.api.handler.v1.FindAccountRequest.condition
+   * @generated from field: mystiko.storage.v1.QueryFilter filter = 1;
    */
-  condition:
-    | {
-        /**
-         * @generated from field: mystiko.storage.v1.QueryFilter filter = 1;
-         */
-        value: QueryFilter;
-        case: 'filter';
-      }
-    | {
-        /**
-         * @generated from field: bool find_all = 2;
-         */
-        value: boolean;
-        case: 'findAll';
-      }
-    | { case: undefined; value?: undefined } = { case: undefined };
+  filter?: QueryFilter;
 
   constructor(data?: PartialMessage<FindAccountRequest>) {
     super();
@@ -128,8 +113,7 @@ export class FindAccountRequest extends Message<FindAccountRequest> {
   static readonly runtime: typeof proto3 = proto3;
   static readonly typeName = 'mystiko.api.handler.v1.FindAccountRequest';
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: 'filter', kind: 'message', T: QueryFilter, oneof: 'condition' },
-    { no: 2, name: 'find_all', kind: 'scalar', T: 8 /* ScalarType.BOOL */, oneof: 'condition' },
+    { no: 1, name: 'filter', kind: 'message', T: QueryFilter },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): FindAccountRequest {
@@ -157,31 +141,9 @@ export class FindAccountRequest extends Message<FindAccountRequest> {
  */
 export class FindAccountByIdentifierRequest extends Message<FindAccountByIdentifierRequest> {
   /**
-   * @generated from oneof mystiko.api.handler.v1.FindAccountByIdentifierRequest.identifier
+   * @generated from field: string identifier = 1;
    */
-  identifier:
-    | {
-        /**
-         * @generated from field: string id = 2;
-         */
-        value: string;
-        case: 'id';
-      }
-    | {
-        /**
-         * @generated from field: string shielded_address = 3;
-         */
-        value: string;
-        case: 'shieldedAddress';
-      }
-    | {
-        /**
-         * @generated from field: string public_key = 4;
-         */
-        value: string;
-        case: 'publicKey';
-      }
-    | { case: undefined; value?: undefined } = { case: undefined };
+  identifier = '';
 
   constructor(data?: PartialMessage<FindAccountByIdentifierRequest>) {
     super();
@@ -191,9 +153,7 @@ export class FindAccountByIdentifierRequest extends Message<FindAccountByIdentif
   static readonly runtime: typeof proto3 = proto3;
   static readonly typeName = 'mystiko.api.handler.v1.FindAccountByIdentifierRequest';
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 2, name: 'id', kind: 'scalar', T: 9 /* ScalarType.STRING */, oneof: 'identifier' },
-    { no: 3, name: 'shielded_address', kind: 'scalar', T: 9 /* ScalarType.STRING */, oneof: 'identifier' },
-    { no: 4, name: 'public_key', kind: 'scalar', T: 9 /* ScalarType.STRING */, oneof: 'identifier' },
+    { no: 1, name: 'identifier', kind: 'scalar', T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): FindAccountByIdentifierRequest {
@@ -229,31 +189,9 @@ export class UpdateAccountRequest extends Message<UpdateAccountRequest> {
   options?: UpdateAccountOptions;
 
   /**
-   * @generated from oneof mystiko.api.handler.v1.UpdateAccountRequest.identifier
+   * @generated from field: string identifier = 2;
    */
-  identifier:
-    | {
-        /**
-         * @generated from field: string id = 2;
-         */
-        value: string;
-        case: 'id';
-      }
-    | {
-        /**
-         * @generated from field: string shielded_address = 3;
-         */
-        value: string;
-        case: 'shieldedAddress';
-      }
-    | {
-        /**
-         * @generated from field: string public_key = 4;
-         */
-        value: string;
-        case: 'publicKey';
-      }
-    | { case: undefined; value?: undefined } = { case: undefined };
+  identifier = '';
 
   constructor(data?: PartialMessage<UpdateAccountRequest>) {
     super();
@@ -264,9 +202,7 @@ export class UpdateAccountRequest extends Message<UpdateAccountRequest> {
   static readonly typeName = 'mystiko.api.handler.v1.UpdateAccountRequest';
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: 'options', kind: 'message', T: UpdateAccountOptions },
-    { no: 2, name: 'id', kind: 'scalar', T: 9 /* ScalarType.STRING */, oneof: 'identifier' },
-    { no: 3, name: 'shielded_address', kind: 'scalar', T: 9 /* ScalarType.STRING */, oneof: 'identifier' },
-    { no: 4, name: 'public_key', kind: 'scalar', T: 9 /* ScalarType.STRING */, oneof: 'identifier' },
+    { no: 2, name: 'identifier', kind: 'scalar', T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): UpdateAccountRequest {
@@ -345,31 +281,9 @@ export class ExportSecretKeyRequest extends Message<ExportSecretKeyRequest> {
   walletPassword = '';
 
   /**
-   * @generated from oneof mystiko.api.handler.v1.ExportSecretKeyRequest.identifier
+   * @generated from field: string identifier = 2;
    */
-  identifier:
-    | {
-        /**
-         * @generated from field: string id = 2;
-         */
-        value: string;
-        case: 'id';
-      }
-    | {
-        /**
-         * @generated from field: string public_key = 3;
-         */
-        value: string;
-        case: 'publicKey';
-      }
-    | {
-        /**
-         * @generated from field: string shielded_address = 4;
-         */
-        value: string;
-        case: 'shieldedAddress';
-      }
-    | { case: undefined; value?: undefined } = { case: undefined };
+  identifier = '';
 
   constructor(data?: PartialMessage<ExportSecretKeyRequest>) {
     super();
@@ -380,9 +294,7 @@ export class ExportSecretKeyRequest extends Message<ExportSecretKeyRequest> {
   static readonly typeName = 'mystiko.api.handler.v1.ExportSecretKeyRequest';
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: 'wallet_password', kind: 'scalar', T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: 'id', kind: 'scalar', T: 9 /* ScalarType.STRING */, oneof: 'identifier' },
-    { no: 3, name: 'public_key', kind: 'scalar', T: 9 /* ScalarType.STRING */, oneof: 'identifier' },
-    { no: 4, name: 'shielded_address', kind: 'scalar', T: 9 /* ScalarType.STRING */, oneof: 'identifier' },
+    { no: 2, name: 'identifier', kind: 'scalar', T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ExportSecretKeyRequest {

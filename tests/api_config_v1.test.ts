@@ -19,7 +19,7 @@ const {
   FindPoolContractByAddressRequest,
   FindContractByAddressRequest,
   GetTransactionUrlRequest,
-} = api.v1;
+} = api.config.v1;
 const {
   GetConfigResponse,
   FindDefaultCircuitResponse,
@@ -36,7 +36,7 @@ const {
   FindPoolContractByAddressResponse,
   FindContractByAddressResponse,
   GetTransactionUrlResponse,
-} = api.v1;
+} = api.config.v1;
 
 test('test config request', () => {
   const circuitRequestDefault = new FindDefaultCircuitRequest({
