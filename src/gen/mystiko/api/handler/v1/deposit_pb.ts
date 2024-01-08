@@ -20,8 +20,9 @@ import {
   SendDepositOptions,
 } from '../../../core/handler/v1/deposit_pb.js';
 import { ClientOptions } from '../../../service/v1/client_pb.js';
-import { ColumnValue, QueryFilter } from '../../../storage/v1/filter_pb.js';
+import { QueryFilter } from '../../../storage/v1/filter_pb.js';
 import { Deposit } from '../../../core/document/v1/deposit_pb.js';
+import { ColumnValuePair } from './common_pb.js';
 
 /**
  * @generated from message mystiko.api.handler.v1.QuoteRequest
@@ -998,53 +999,5 @@ export class UpdateDepositBatchResponse extends Message<UpdateDepositBatchRespon
     b: UpdateDepositBatchResponse | PlainMessage<UpdateDepositBatchResponse> | undefined,
   ): boolean {
     return proto3.util.equals(UpdateDepositBatchResponse, a, b);
-  }
-}
-
-/**
- * column value
- *
- * @generated from message mystiko.api.handler.v1.ColumnValuePair
- */
-export class ColumnValuePair extends Message<ColumnValuePair> {
-  /**
-   * @generated from field: string column = 1;
-   */
-  column = '';
-
-  /**
-   * @generated from field: mystiko.storage.v1.ColumnValue value = 2;
-   */
-  value?: ColumnValue;
-
-  constructor(data?: PartialMessage<ColumnValuePair>) {
-    super();
-    proto3.util.initPartial(data, this);
-  }
-
-  static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = 'mystiko.api.handler.v1.ColumnValuePair';
-  static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: 'column', kind: 'scalar', T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: 'value', kind: 'message', T: ColumnValue },
-  ]);
-
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ColumnValuePair {
-    return new ColumnValuePair().fromBinary(bytes, options);
-  }
-
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): ColumnValuePair {
-    return new ColumnValuePair().fromJson(jsonValue, options);
-  }
-
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): ColumnValuePair {
-    return new ColumnValuePair().fromJsonString(jsonString, options);
-  }
-
-  static equals(
-    a: ColumnValuePair | PlainMessage<ColumnValuePair> | undefined,
-    b: ColumnValuePair | PlainMessage<ColumnValuePair> | undefined,
-  ): boolean {
-    return proto3.util.equals(ColumnValuePair, a, b);
   }
 }
