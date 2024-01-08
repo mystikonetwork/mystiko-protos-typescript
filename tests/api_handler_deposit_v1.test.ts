@@ -27,6 +27,7 @@ const {
   UpdateDepositRequest,
   UpdateDepositResponse,
 } = api.handler.v1;
+const { Transaction, Eip1559Transaction, LegacyTransaction } = core.v1;
 const { Deposit } = core.document.v1;
 const { CreateDepositOptions, DepositQuote, DepositSummary, QuoteDepositOptions, SendDepositOptions } =
   core.handler.v1;
@@ -71,6 +72,14 @@ test('test request', () => {
     options: new SendDepositOptions({
       depositId: '123',
       privateKey: '456',
+      assetApproveTx: new Transaction({
+        transaction: {
+          case: 'legacyTransaction',
+          value: new LegacyTransaction({
+            gasPrice: '1000000000',
+          }),
+        },
+      }),
     }),
   });
   expect(SendRequest.equals(SendRequest.fromJson(sendRequest.toJson()), sendRequest)).toBe(true);
@@ -80,6 +89,14 @@ test('test request', () => {
     sendOptions: new SendDepositOptions({
       depositId: '123',
       privateKey: '456',
+      assetApproveTx: new Transaction({
+        transaction: {
+          case: 'eip1559Transaction',
+          value: new Eip1559Transaction({
+            maxPriorityFeePerGas: '3000000000',
+          }),
+        },
+      }),
     }),
     clientOptions: new ClientOptions({
       host: 'host',
