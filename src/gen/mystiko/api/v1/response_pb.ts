@@ -432,6 +432,278 @@ proto3.util.setEnumType(DepositError, 'mystiko.api.v1.DepositError', [
 ]);
 
 /**
+ * @generated from enum mystiko.api.v1.SpendError
+ */
+export enum SpendError {
+  /**
+   * @generated from enum value: SPEND_ERROR_UNSPECIFIED = 0;
+   */
+  UNSPECIFIED = 0,
+
+  /**
+   * @generated from enum value: SPEND_ERROR_ANYHOW_ERROR = 1;
+   */
+  ANYHOW_ERROR = 1,
+
+  /**
+   * @generated from enum value: SPEND_ERROR_PUBLIC_ASSETS_ERROR = 2;
+   */
+  PUBLIC_ASSETS_ERROR = 2,
+
+  /**
+   * @generated from enum value: SPEND_ERROR_COMMITMENT_POOL_CONTRACTS_ERROR = 3;
+   */
+  COMMITMENT_POOL_CONTRACTS_ERROR = 3,
+
+  /**
+   * @generated from enum value: SPEND_ERROR_TRANSACTIONS_ERROR = 4;
+   */
+  TRANSACTIONS_ERROR = 4,
+
+  /**
+   * @generated from enum value: SPEND_ERROR_STORAGE_ERROR = 5;
+   */
+  STORAGE_ERROR = 5,
+
+  /**
+   * @generated from enum value: SPEND_ERROR_WALLETS_ERROR = 6;
+   */
+  WALLETS_ERROR = 6,
+
+  /**
+   * @generated from enum value: SPEND_ERROR_ACCOUNTS_ERROR = 7;
+   */
+  ACCOUNTS_ERROR = 7,
+
+  /**
+   * @generated from enum value: SPEND_ERROR_RELAYER_CLIENT_ERROR = 8;
+   */
+  RELAYER_CLIENT_ERROR = 8,
+
+  /**
+   * @generated from enum value: SPEND_ERROR_HEX_STRING_ERROR = 9;
+   */
+  HEX_STRING_ERROR = 9,
+
+  /**
+   * @generated from enum value: SPEND_ERROR_PARSE_BIG_INT_ERROR = 10;
+   */
+  PARSE_BIG_INT_ERROR = 10,
+
+  /**
+   * @generated from enum value: SPEND_ERROR_PROTOCOL_ERROR = 11;
+   */
+  PROTOCOL_ERROR = 11,
+
+  /**
+   * @generated from enum value: SPEND_ERROR_PROTOCOL_KEY_ERROR = 12;
+   */
+  PROTOCOL_KEY_ERROR = 12,
+
+  /**
+   * @generated from enum value: SPEND_ERROR_CRYPTO_ERROR = 13;
+   */
+  CRYPTO_ERROR = 13,
+
+  /**
+   * @generated from enum value: SPEND_ERROR_MERKLE_TREE_ERROR = 14;
+   */
+  MERKLE_TREE_ERROR = 14,
+
+  /**
+   * @generated from enum value: SPEND_ERROR_G16_PROVER_ERROR = 15;
+   */
+  G16_PROVER_ERROR = 15,
+
+  /**
+   * @generated from enum value: SPEND_ERROR_LOCAL_WALLET_ERROR = 16;
+   */
+  LOCAL_WALLET_ERROR = 16,
+
+  /**
+   * @generated from enum value: SPEND_ERROR_SERDE_JSON_ERROR = 17;
+   */
+  SERDE_JSON_ERROR = 17,
+
+  /**
+   * @generated from enum value: SPEND_ERROR_NO_POOL_CONTRACT_FOUND_ERROR = 18;
+   */
+  NO_POOL_CONTRACT_FOUND_ERROR = 18,
+
+  /**
+   * @generated from enum value: SPEND_ERROR_NO_POOL_CONTRACT_ADDRESS_FOUND_ERROR = 19;
+   */
+  NO_POOL_CONTRACT_ADDRESS_FOUND_ERROR = 19,
+
+  /**
+   * @generated from enum value: SPEND_ERROR_MISSING_PRIVATE_KEY_ERROR = 20;
+   */
+  MISSING_PRIVATE_KEY_ERROR = 20,
+
+  /**
+   * @generated from enum value: SPEND_ERROR_UNSUPPORTED_CHAIN_ID_ERROR = 21;
+   */
+  UNSUPPORTED_CHAIN_ID_ERROR = 21,
+
+  /**
+   * @generated from enum value: SPEND_ERROR_UNSUPPORTED_SPEND_JOIN_SPLIT_TYPE_ERROR = 22;
+   */
+  UNSUPPORTED_SPEND_JOIN_SPLIT_TYPE_ERROR = 22,
+
+  /**
+   * @generated from enum value: SPEND_ERROR_INVALID_CREATE_OPTIONS_ERROR = 23;
+   */
+  INVALID_CREATE_OPTIONS_ERROR = 23,
+
+  /**
+   * @generated from enum value: SPEND_ERROR_INVALID_PUBLIC_ADDRESS_ERROR = 24;
+   */
+  INVALID_PUBLIC_ADDRESS_ERROR = 24,
+
+  /**
+   * @generated from enum value: SPEND_ERROR_INVALID_MYSTIKO_ADDRESS_ERROR = 25;
+   */
+  INVALID_MYSTIKO_ADDRESS_ERROR = 25,
+
+  /**
+   * @generated from enum value: SPEND_ERROR_INVALID_AMOUNT_ERROR = 26;
+   */
+  INVALID_AMOUNT_ERROR = 26,
+
+  /**
+   * @generated from enum value: SPEND_ERROR_INVALID_ROLLUP_FEE_AMOUNT_ERROR = 27;
+   */
+  INVALID_ROLLUP_FEE_AMOUNT_ERROR = 27,
+
+  /**
+   * @generated from enum value: SPEND_ERROR_INSUFFICIENT_POOL_BALANCE_ERROR = 28;
+   */
+  INSUFFICIENT_POOL_BALANCE_ERROR = 28,
+
+  /**
+   * @generated from enum value: SPEND_ERROR_UNKNOWN_MERKLE_ROOT_ERROR = 29;
+   */
+  UNKNOWN_MERKLE_ROOT_ERROR = 29,
+
+  /**
+   * @generated from enum value: SPEND_ERROR_ALREADY_SPENT_COMMITMENT_ERROR = 30;
+   */
+  ALREADY_SPENT_COMMITMENT_ERROR = 30,
+
+  /**
+   * @generated from enum value: SPEND_ERROR_MISSING_SHIELDED_ADDRESS_IN_COMMITMENT_ERROR = 31;
+   */
+  MISSING_SHIELDED_ADDRESS_IN_COMMITMENT_ERROR = 31,
+
+  /**
+   * @generated from enum value: SPEND_ERROR_MISSING_ENCRYPTED_NOTE_IN_COMMITMENT_ERROR = 32;
+   */
+  MISSING_ENCRYPTED_NOTE_IN_COMMITMENT_ERROR = 32,
+
+  /**
+   * @generated from enum value: SPEND_ERROR_MISSING_COMMITMENT_IN_MERKLE_TREE = 33;
+   */
+  MISSING_COMMITMENT_IN_MERKLE_TREE = 33,
+
+  /**
+   * @generated from enum value: SPEND_ERROR_NON_OWNED_SHIELDED_ADDRESS_ERROR = 34;
+   */
+  NON_OWNED_SHIELDED_ADDRESS_ERROR = 34,
+
+  /**
+   * @generated from enum value: SPEND_ERROR_MISSING_CIRCUIT_TYPE_IN_CONFIG_ERROR = 35;
+   */
+  MISSING_CIRCUIT_TYPE_IN_CONFIG_ERROR = 35,
+
+  /**
+   * @generated from enum value: SPEND_ERROR_INVALID_ZK_PROOF_ERROR = 36;
+   */
+  INVALID_ZK_PROOF_ERROR = 36,
+
+  /**
+   * @generated from enum value: SPEND_ERROR_SPEND_NOT_FOUND_ERROR = 37;
+   */
+  SPEND_NOT_FOUND_ERROR = 37,
+
+  /**
+   * @generated from enum value: SPEND_ERROR_SPEND_STATUS_ERROR = 38;
+   */
+  SPEND_STATUS_ERROR = 38,
+
+  /**
+   * @generated from enum value: SPEND_ERROR_MISSING_GIVEN_RELAYER_ERROR = 39;
+   */
+  MISSING_GIVEN_RELAYER_ERROR = 39,
+
+  /**
+   * @generated from enum value: SPEND_ERROR_MISSING_TRANSACTION_HASH_FROM_RELAYER_JOB_ERROR = 40;
+   */
+  MISSING_TRANSACTION_HASH_FROM_RELAYER_JOB_ERROR = 40,
+
+  /**
+   * @generated from enum value: SPEND_ERROR_GET_MYSTIKO_GUARD_ERROR = 41;
+   */
+  GET_MYSTIKO_GUARD_ERROR = 41,
+
+  /**
+   * @generated from enum value: SPEND_ERROR_DESERIALIZE_MESSAGE_ERROR = 42;
+   */
+  DESERIALIZE_MESSAGE_ERROR = 42,
+
+  /**
+   * @generated from enum value: SPEND_ERROR_GRPC_CONNECT_ERROR = 43;
+   */
+  GRPC_CONNECT_ERROR = 43,
+}
+// Retrieve enum metadata with: proto3.getEnumType(SpendError)
+proto3.util.setEnumType(SpendError, 'mystiko.api.v1.SpendError', [
+  { no: 0, name: 'SPEND_ERROR_UNSPECIFIED' },
+  { no: 1, name: 'SPEND_ERROR_ANYHOW_ERROR' },
+  { no: 2, name: 'SPEND_ERROR_PUBLIC_ASSETS_ERROR' },
+  { no: 3, name: 'SPEND_ERROR_COMMITMENT_POOL_CONTRACTS_ERROR' },
+  { no: 4, name: 'SPEND_ERROR_TRANSACTIONS_ERROR' },
+  { no: 5, name: 'SPEND_ERROR_STORAGE_ERROR' },
+  { no: 6, name: 'SPEND_ERROR_WALLETS_ERROR' },
+  { no: 7, name: 'SPEND_ERROR_ACCOUNTS_ERROR' },
+  { no: 8, name: 'SPEND_ERROR_RELAYER_CLIENT_ERROR' },
+  { no: 9, name: 'SPEND_ERROR_HEX_STRING_ERROR' },
+  { no: 10, name: 'SPEND_ERROR_PARSE_BIG_INT_ERROR' },
+  { no: 11, name: 'SPEND_ERROR_PROTOCOL_ERROR' },
+  { no: 12, name: 'SPEND_ERROR_PROTOCOL_KEY_ERROR' },
+  { no: 13, name: 'SPEND_ERROR_CRYPTO_ERROR' },
+  { no: 14, name: 'SPEND_ERROR_MERKLE_TREE_ERROR' },
+  { no: 15, name: 'SPEND_ERROR_G16_PROVER_ERROR' },
+  { no: 16, name: 'SPEND_ERROR_LOCAL_WALLET_ERROR' },
+  { no: 17, name: 'SPEND_ERROR_SERDE_JSON_ERROR' },
+  { no: 18, name: 'SPEND_ERROR_NO_POOL_CONTRACT_FOUND_ERROR' },
+  { no: 19, name: 'SPEND_ERROR_NO_POOL_CONTRACT_ADDRESS_FOUND_ERROR' },
+  { no: 20, name: 'SPEND_ERROR_MISSING_PRIVATE_KEY_ERROR' },
+  { no: 21, name: 'SPEND_ERROR_UNSUPPORTED_CHAIN_ID_ERROR' },
+  { no: 22, name: 'SPEND_ERROR_UNSUPPORTED_SPEND_JOIN_SPLIT_TYPE_ERROR' },
+  { no: 23, name: 'SPEND_ERROR_INVALID_CREATE_OPTIONS_ERROR' },
+  { no: 24, name: 'SPEND_ERROR_INVALID_PUBLIC_ADDRESS_ERROR' },
+  { no: 25, name: 'SPEND_ERROR_INVALID_MYSTIKO_ADDRESS_ERROR' },
+  { no: 26, name: 'SPEND_ERROR_INVALID_AMOUNT_ERROR' },
+  { no: 27, name: 'SPEND_ERROR_INVALID_ROLLUP_FEE_AMOUNT_ERROR' },
+  { no: 28, name: 'SPEND_ERROR_INSUFFICIENT_POOL_BALANCE_ERROR' },
+  { no: 29, name: 'SPEND_ERROR_UNKNOWN_MERKLE_ROOT_ERROR' },
+  { no: 30, name: 'SPEND_ERROR_ALREADY_SPENT_COMMITMENT_ERROR' },
+  { no: 31, name: 'SPEND_ERROR_MISSING_SHIELDED_ADDRESS_IN_COMMITMENT_ERROR' },
+  { no: 32, name: 'SPEND_ERROR_MISSING_ENCRYPTED_NOTE_IN_COMMITMENT_ERROR' },
+  { no: 33, name: 'SPEND_ERROR_MISSING_COMMITMENT_IN_MERKLE_TREE' },
+  { no: 34, name: 'SPEND_ERROR_NON_OWNED_SHIELDED_ADDRESS_ERROR' },
+  { no: 35, name: 'SPEND_ERROR_MISSING_CIRCUIT_TYPE_IN_CONFIG_ERROR' },
+  { no: 36, name: 'SPEND_ERROR_INVALID_ZK_PROOF_ERROR' },
+  { no: 37, name: 'SPEND_ERROR_SPEND_NOT_FOUND_ERROR' },
+  { no: 38, name: 'SPEND_ERROR_SPEND_STATUS_ERROR' },
+  { no: 39, name: 'SPEND_ERROR_MISSING_GIVEN_RELAYER_ERROR' },
+  { no: 40, name: 'SPEND_ERROR_MISSING_TRANSACTION_HASH_FROM_RELAYER_JOB_ERROR' },
+  { no: 41, name: 'SPEND_ERROR_GET_MYSTIKO_GUARD_ERROR' },
+  { no: 42, name: 'SPEND_ERROR_DESERIALIZE_MESSAGE_ERROR' },
+  { no: 43, name: 'SPEND_ERROR_GRPC_CONNECT_ERROR' },
+]);
+
+/**
  * @generated from enum mystiko.api.v1.ScannerError
  */
 export enum ScannerError {
@@ -703,6 +975,13 @@ export class StatusCode extends Message<StatusCode> {
         value: ConfigError;
         case: 'config';
       }
+    | {
+        /**
+         * @generated from field: mystiko.api.v1.SpendError spend = 9;
+         */
+        value: SpendError;
+        case: 'spend';
+      }
     | { case: undefined; value?: undefined } = { case: undefined };
 
   constructor(data?: PartialMessage<StatusCode>) {
@@ -721,6 +1000,7 @@ export class StatusCode extends Message<StatusCode> {
     { no: 6, name: 'scanner', kind: 'enum', T: proto3.getEnumType(ScannerError), oneof: 'error' },
     { no: 7, name: 'synchronizer', kind: 'enum', T: proto3.getEnumType(SynchronizerError), oneof: 'error' },
     { no: 8, name: 'config', kind: 'enum', T: proto3.getEnumType(ConfigError), oneof: 'error' },
+    { no: 9, name: 'spend', kind: 'enum', T: proto3.getEnumType(SpendError), oneof: 'error' },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): StatusCode {
