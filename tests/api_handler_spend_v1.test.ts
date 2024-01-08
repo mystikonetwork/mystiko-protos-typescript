@@ -27,6 +27,7 @@ const {
   UpdateSpendResponse,
   UpdateSpendBatchResponse,
 } = api.handler.v1;
+const { Transaction, LegacyTransaction } = core.v1;
 const { QuoteSpendOptions, CreateSpendOptions, SendSpendOptions, SpendQuote, SpendSummary } = core.handler.v1;
 const { Spend } = core.document.v1;
 const { ClientOptions } = service.v1;
@@ -73,6 +74,14 @@ test('test request', () => {
   const sendRequest = new SendSpendRequest({
     options: new SendSpendOptions({
       spendId: '0x123',
+      tx: new Transaction({
+        transaction: {
+          case: 'legacyTransaction',
+          value: new LegacyTransaction({
+            gasPrice: '1000000000',
+          }),
+        },
+      }),
     }),
   });
   expect(SendSpendRequest.equals(SendSpendRequest.fromJson(sendRequest.toJson()), sendRequest)).toBe(true);
