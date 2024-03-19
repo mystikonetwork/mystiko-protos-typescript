@@ -1,10 +1,21 @@
 import { api, core } from '../src';
 
-const { ChainSyncedBlockRequest, ContractSyncedBlockRequest, StatusRequest, SyncRequest, ResetRequest } =
-  api.synchronizer.v1;
+const {
+  ChainSyncedBlockRequest,
+  ContractSyncedBlockRequest,
+  StatusRequest,
+  SyncRequest,
+  SynchronizerResetRequest,
+} = api.synchronizer.v1;
 const { ChainSyncedBlockResponse, ContractSyncedBlockResponse, StatusResponse } = api.synchronizer.v1;
-const { SyncOptions, ResetOptions, ResetChainOptions, SynchronizerStatus, ChainStatus, ContractStatus } =
-  core.synchronizer.v1;
+const {
+  SyncOptions,
+  SynchronizerResetOptions,
+  ResetChainOptions,
+  SynchronizerStatus,
+  ChainStatus,
+  ContractStatus,
+} = core.synchronizer.v1;
 
 test('test request', () => {
   const chainSyncedBlockRequest = new ChainSyncedBlockRequest({
@@ -55,8 +66,8 @@ test('test request', () => {
   expect(SyncRequest.equals(SyncRequest.fromJson(syncRequest.toJson()), syncRequest)).toBe(true);
   expect(SyncRequest.equals(SyncRequest.fromBinary(syncRequest.toBinary()), syncRequest)).toBe(true);
 
-  const resetRequest = new ResetRequest({
-    options: new ResetOptions({
+  const resetRequest = new SynchronizerResetRequest({
+    options: new SynchronizerResetOptions({
       chains: [
         new ResetChainOptions({
           chainId: BigInt(1),
@@ -65,8 +76,15 @@ test('test request', () => {
       ],
     }),
   });
-  expect(ResetRequest.equals(ResetRequest.fromJson(resetRequest.toJson()), resetRequest)).toBe(true);
-  expect(ResetRequest.equals(ResetRequest.fromBinary(resetRequest.toBinary()), resetRequest)).toBe(true);
+  expect(
+    SynchronizerResetRequest.equals(SynchronizerResetRequest.fromJson(resetRequest.toJson()), resetRequest),
+  ).toBe(true);
+  expect(
+    SynchronizerResetRequest.equals(
+      SynchronizerResetRequest.fromBinary(resetRequest.toBinary()),
+      resetRequest,
+    ),
+  ).toBe(true);
 });
 
 test('test response', () => {
