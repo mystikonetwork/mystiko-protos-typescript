@@ -1,8 +1,9 @@
 import { api, core } from '../src';
 
-const { ScanRequest, ResetRequest, BalanceRequest, AssetsRequest, ChainAssetsRequest } = api.scanner.v1;
+const { ScanRequest, ScannerResetRequest, BalanceRequest, AssetsRequest, ChainAssetsRequest } =
+  api.scanner.v1;
 const { ScanResponse, ResetResponse, BalanceResponse, AssetsResponse, ChainAssetsResponse } = api.scanner.v1;
-const { ScanOptions, ResetOptions, BalanceOptions, AssetsOptions } = core.scanner.v1;
+const { ScanOptions, ScannerResetOptions, BalanceOptions, AssetsOptions } = core.scanner.v1;
 const { ScanResult, ResetResult, BalanceResult, Balance, AssetsByChain, AssetsByBridge, AssetsBySymbol } =
   core.scanner.v1;
 
@@ -16,13 +17,17 @@ test('test request', () => {
   expect(ScanRequest.equals(ScanRequest.fromJson(scanRequest.toJson()), scanRequest)).toBe(true);
   expect(ScanRequest.equals(ScanRequest.fromBinary(scanRequest.toBinary()), scanRequest)).toBe(true);
 
-  const resetRequest = new ResetRequest({
-    options: new ResetOptions({
+  const resetRequest = new ScannerResetRequest({
+    options: new ScannerResetOptions({
       resetToId: 'id',
     }),
   });
-  expect(ResetRequest.equals(ResetRequest.fromJson(resetRequest.toJson()), resetRequest)).toBe(true);
-  expect(ResetRequest.equals(ResetRequest.fromBinary(resetRequest.toBinary()), resetRequest)).toBe(true);
+  expect(ScannerResetRequest.equals(ScannerResetRequest.fromJson(resetRequest.toJson()), resetRequest)).toBe(
+    true,
+  );
+  expect(
+    ScannerResetRequest.equals(ScannerResetRequest.fromBinary(resetRequest.toBinary()), resetRequest),
+  ).toBe(true);
 
   const balanceRequest = new BalanceRequest({
     options: new BalanceOptions({
