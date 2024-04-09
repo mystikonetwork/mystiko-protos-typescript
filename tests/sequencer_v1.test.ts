@@ -4,9 +4,13 @@ const { Commitment, CommitmentStatus, Nullifier } = data.v1;
 
 const {
   GetCommitmentsRequest,
+  GetCommitmentsByTxHashRequest,
   GetCommitmentsResponse,
+  GetCommitmentsByTxHashResponse,
   GetNullifiersRequest,
+  GetNullifiersByTxHashRequest,
   GetNullifiersResponse,
+  GetNullifiersByTxHashResponse,
   ChainLoadedBlockRequest,
   ChainLoadedBlockResponse,
   ContractLoadedBlockRequest,
@@ -101,12 +105,50 @@ test('test serde', () => {
       }),
     ],
   });
+  const getCommitmentsByTxHashRequest = new GetCommitmentsByTxHashRequest({
+    chainId: BigInt(1),
+    txHash: new Uint8Array([0xba, 0xad, 0xba, 0xbe]),
+  });
+  const getCommitmentsByTxHashResponse = new GetCommitmentsByTxHashResponse({
+    chainId: BigInt(1),
+    contractAddress: new Uint8Array([0xba, 0xad, 0xba, 0xbe]),
+    commitments: [
+      new Commitment({
+        commitmentHash: new Uint8Array([0xde, 0xad, 0xbe, 0xef]),
+        status: CommitmentStatus.QUEUED,
+        blockNumber: BigInt(10001),
+        includedBlockNumber: BigInt(10002),
+        srcChainBlockNumber: BigInt(20001),
+        leafIndex: BigInt(0),
+        rollupFee: new Uint8Array([0xba, 0xad, 0xba, 0xbe]),
+        encryptedNote: new Uint8Array([0xde, 0xad, 0xbe, 0xef, 0xba, 0xad, 0xba, 0xbe]),
+        queuedTransactionHash: new Uint8Array([0xde, 0xad]),
+        includedTransactionHash: new Uint8Array([0xbe, 0xef]),
+        srcChainTransactionHash: new Uint8Array([0xba, 0xbe]),
+      }),
+    ],
+  });
   const getNullifierRequest = new GetNullifiersRequest({
     chainId: BigInt(1),
     contractAddress: new Uint8Array([0xba, 0xad, 0xba, 0xbe]),
     nullifierHashes: [new Uint8Array([0xba, 0xad, 0xba, 0xbe])],
   });
   const getNullifierResponse = new GetNullifiersResponse({
+    chainId: BigInt(1),
+    contractAddress: new Uint8Array([0xba, 0xad, 0xba, 0xbe]),
+    nullifiers: [
+      new Nullifier({
+        nullifier: new Uint8Array([0xba, 0xad, 0xba, 0xbe]),
+        blockNumber: BigInt(10003),
+        transactionHash: new Uint8Array([0xde, 0xad, 0xbe, 0xef]),
+      }),
+    ],
+  });
+  const getNullifiesByTxHashRequest = new GetNullifiersByTxHashRequest({
+    chainId: BigInt(1),
+    txHash: new Uint8Array([0xba, 0xad, 0xba, 0xbe]),
+  });
+  const getNullifiersByTxHashResponse = new GetNullifiersByTxHashResponse({
     chainId: BigInt(1),
     contractAddress: new Uint8Array([0xba, 0xad, 0xba, 0xbe]),
     nullifiers: [
@@ -302,6 +344,44 @@ test('test serde', () => {
   ).toBe(true);
 
   expect(
+    GetCommitmentsByTxHashRequest.equals(
+      GetCommitmentsByTxHashRequest.fromJson(getCommitmentsByTxHashRequest.toJson()),
+      getCommitmentsByTxHashRequest,
+    ),
+  ).toBe(true);
+  expect(
+    GetCommitmentsByTxHashRequest.equals(
+      GetCommitmentsByTxHashRequest.fromJsonString(getCommitmentsByTxHashRequest.toJsonString()),
+      getCommitmentsByTxHashRequest,
+    ),
+  ).toBe(true);
+  expect(
+    GetCommitmentsByTxHashRequest.equals(
+      GetCommitmentsByTxHashRequest.fromBinary(getCommitmentsByTxHashRequest.toBinary()),
+      getCommitmentsByTxHashRequest,
+    ),
+  ).toBe(true);
+
+  expect(
+    GetCommitmentsByTxHashResponse.equals(
+      GetCommitmentsByTxHashResponse.fromJson(getCommitmentsByTxHashResponse.toJson()),
+      getCommitmentsByTxHashResponse,
+    ),
+  ).toBe(true);
+  expect(
+    GetCommitmentsByTxHashResponse.equals(
+      GetCommitmentsByTxHashResponse.fromJsonString(getCommitmentsByTxHashResponse.toJsonString()),
+      getCommitmentsByTxHashResponse,
+    ),
+  ).toBe(true);
+  expect(
+    GetCommitmentsByTxHashResponse.equals(
+      GetCommitmentsByTxHashResponse.fromBinary(getCommitmentsByTxHashResponse.toBinary()),
+      getCommitmentsByTxHashResponse,
+    ),
+  ).toBe(true);
+
+  expect(
     GetNullifiersRequest.equals(
       GetNullifiersRequest.fromJson(getNullifierRequest.toJson()),
       getNullifierRequest,
@@ -336,6 +416,44 @@ test('test serde', () => {
     GetNullifiersResponse.equals(
       GetNullifiersResponse.fromBinary(getNullifierResponse.toBinary()),
       getNullifierResponse,
+    ),
+  ).toBe(true);
+
+  expect(
+    GetNullifiersByTxHashRequest.equals(
+      GetNullifiersByTxHashRequest.fromJson(getNullifiesByTxHashRequest.toJson()),
+      getNullifiesByTxHashRequest,
+    ),
+  ).toBe(true);
+  expect(
+    GetNullifiersByTxHashRequest.equals(
+      GetNullifiersByTxHashRequest.fromJsonString(getNullifiesByTxHashRequest.toJsonString()),
+      getNullifiesByTxHashRequest,
+    ),
+  ).toBe(true);
+  expect(
+    GetNullifiersByTxHashRequest.equals(
+      GetNullifiersByTxHashRequest.fromBinary(getNullifiesByTxHashRequest.toBinary()),
+      getNullifiesByTxHashRequest,
+    ),
+  ).toBe(true);
+
+  expect(
+    GetNullifiersByTxHashResponse.equals(
+      GetNullifiersByTxHashResponse.fromJson(getNullifiersByTxHashResponse.toJson()),
+      getNullifiersByTxHashResponse,
+    ),
+  ).toBe(true);
+  expect(
+    GetNullifiersByTxHashResponse.equals(
+      GetNullifiersByTxHashResponse.fromJsonString(getNullifiersByTxHashResponse.toJsonString()),
+      getNullifiersByTxHashResponse,
+    ),
+  ).toBe(true);
+  expect(
+    GetNullifiersByTxHashResponse.equals(
+      GetNullifiersByTxHashResponse.fromBinary(getNullifiersByTxHashResponse.toBinary()),
+      getNullifiersByTxHashResponse,
     ),
   ).toBe(true);
 

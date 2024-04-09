@@ -542,6 +542,110 @@ export class GetCommitmentsResponse extends Message<GetCommitmentsResponse> {
 }
 
 /**
+ * @generated from message mystiko.sequencer.v1.GetCommitmentsByTxHashRequest
+ */
+export class GetCommitmentsByTxHashRequest extends Message<GetCommitmentsByTxHashRequest> {
+  /**
+   * @generated from field: uint64 chain_id = 1;
+   */
+  chainId = protoInt64.zero;
+
+  /**
+   * @generated from field: bytes tx_hash = 3;
+   */
+  txHash = new Uint8Array(0);
+
+  constructor(data?: PartialMessage<GetCommitmentsByTxHashRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = 'mystiko.sequencer.v1.GetCommitmentsByTxHashRequest';
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: 'chain_id', kind: 'scalar', T: 4 /* ScalarType.UINT64 */ },
+    { no: 3, name: 'tx_hash', kind: 'scalar', T: 12 /* ScalarType.BYTES */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): GetCommitmentsByTxHashRequest {
+    return new GetCommitmentsByTxHashRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): GetCommitmentsByTxHashRequest {
+    return new GetCommitmentsByTxHashRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(
+    jsonString: string,
+    options?: Partial<JsonReadOptions>,
+  ): GetCommitmentsByTxHashRequest {
+    return new GetCommitmentsByTxHashRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(
+    a: GetCommitmentsByTxHashRequest | PlainMessage<GetCommitmentsByTxHashRequest> | undefined,
+    b: GetCommitmentsByTxHashRequest | PlainMessage<GetCommitmentsByTxHashRequest> | undefined,
+  ): boolean {
+    return proto3.util.equals(GetCommitmentsByTxHashRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message mystiko.sequencer.v1.GetCommitmentsByTxHashResponse
+ */
+export class GetCommitmentsByTxHashResponse extends Message<GetCommitmentsByTxHashResponse> {
+  /**
+   * @generated from field: uint64 chain_id = 1;
+   */
+  chainId = protoInt64.zero;
+
+  /**
+   * @generated from field: bytes contract_address = 2;
+   */
+  contractAddress = new Uint8Array(0);
+
+  /**
+   * @generated from field: repeated mystiko.data.v1.Commitment commitments = 3;
+   */
+  commitments: Commitment[] = [];
+
+  constructor(data?: PartialMessage<GetCommitmentsByTxHashResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = 'mystiko.sequencer.v1.GetCommitmentsByTxHashResponse';
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: 'chain_id', kind: 'scalar', T: 4 /* ScalarType.UINT64 */ },
+    { no: 2, name: 'contract_address', kind: 'scalar', T: 12 /* ScalarType.BYTES */ },
+    { no: 3, name: 'commitments', kind: 'message', T: Commitment, repeated: true },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): GetCommitmentsByTxHashResponse {
+    return new GetCommitmentsByTxHashResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): GetCommitmentsByTxHashResponse {
+    return new GetCommitmentsByTxHashResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(
+    jsonString: string,
+    options?: Partial<JsonReadOptions>,
+  ): GetCommitmentsByTxHashResponse {
+    return new GetCommitmentsByTxHashResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(
+    a: GetCommitmentsByTxHashResponse | PlainMessage<GetCommitmentsByTxHashResponse> | undefined,
+    b: GetCommitmentsByTxHashResponse | PlainMessage<GetCommitmentsByTxHashResponse> | undefined,
+  ): boolean {
+    return proto3.util.equals(GetCommitmentsByTxHashResponse, a, b);
+  }
+}
+
+/**
  * @generated from message mystiko.sequencer.v1.GetNullifiersRequest
  */
 export class GetNullifiersRequest extends Message<GetNullifiersRequest> {
@@ -594,6 +698,55 @@ export class GetNullifiersRequest extends Message<GetNullifiersRequest> {
 }
 
 /**
+ * @generated from message mystiko.sequencer.v1.GetNullifiersByTxHashRequest
+ */
+export class GetNullifiersByTxHashRequest extends Message<GetNullifiersByTxHashRequest> {
+  /**
+   * @generated from field: uint64 chain_id = 1;
+   */
+  chainId = protoInt64.zero;
+
+  /**
+   * @generated from field: bytes tx_hash = 3;
+   */
+  txHash = new Uint8Array(0);
+
+  constructor(data?: PartialMessage<GetNullifiersByTxHashRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = 'mystiko.sequencer.v1.GetNullifiersByTxHashRequest';
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: 'chain_id', kind: 'scalar', T: 4 /* ScalarType.UINT64 */ },
+    { no: 3, name: 'tx_hash', kind: 'scalar', T: 12 /* ScalarType.BYTES */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): GetNullifiersByTxHashRequest {
+    return new GetNullifiersByTxHashRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): GetNullifiersByTxHashRequest {
+    return new GetNullifiersByTxHashRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(
+    jsonString: string,
+    options?: Partial<JsonReadOptions>,
+  ): GetNullifiersByTxHashRequest {
+    return new GetNullifiersByTxHashRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(
+    a: GetNullifiersByTxHashRequest | PlainMessage<GetNullifiersByTxHashRequest> | undefined,
+    b: GetNullifiersByTxHashRequest | PlainMessage<GetNullifiersByTxHashRequest> | undefined,
+  ): boolean {
+    return proto3.util.equals(GetNullifiersByTxHashRequest, a, b);
+  }
+}
+
+/**
  * @generated from message mystiko.sequencer.v1.GetNullifiersResponse
  */
 export class GetNullifiersResponse extends Message<GetNullifiersResponse> {
@@ -642,6 +795,61 @@ export class GetNullifiersResponse extends Message<GetNullifiersResponse> {
     b: GetNullifiersResponse | PlainMessage<GetNullifiersResponse> | undefined,
   ): boolean {
     return proto3.util.equals(GetNullifiersResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message mystiko.sequencer.v1.GetNullifiersByTxHashResponse
+ */
+export class GetNullifiersByTxHashResponse extends Message<GetNullifiersByTxHashResponse> {
+  /**
+   * @generated from field: uint64 chain_id = 1;
+   */
+  chainId = protoInt64.zero;
+
+  /**
+   * @generated from field: bytes contract_address = 2;
+   */
+  contractAddress = new Uint8Array(0);
+
+  /**
+   * @generated from field: repeated mystiko.data.v1.Nullifier nullifiers = 3;
+   */
+  nullifiers: Nullifier[] = [];
+
+  constructor(data?: PartialMessage<GetNullifiersByTxHashResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = 'mystiko.sequencer.v1.GetNullifiersByTxHashResponse';
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: 'chain_id', kind: 'scalar', T: 4 /* ScalarType.UINT64 */ },
+    { no: 2, name: 'contract_address', kind: 'scalar', T: 12 /* ScalarType.BYTES */ },
+    { no: 3, name: 'nullifiers', kind: 'message', T: Nullifier, repeated: true },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): GetNullifiersByTxHashResponse {
+    return new GetNullifiersByTxHashResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): GetNullifiersByTxHashResponse {
+    return new GetNullifiersByTxHashResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(
+    jsonString: string,
+    options?: Partial<JsonReadOptions>,
+  ): GetNullifiersByTxHashResponse {
+    return new GetNullifiersByTxHashResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(
+    a: GetNullifiersByTxHashResponse | PlainMessage<GetNullifiersByTxHashResponse> | undefined,
+    b: GetNullifiersByTxHashResponse | PlainMessage<GetNullifiersByTxHashResponse> | undefined,
+  ): boolean {
+    return proto3.util.equals(GetNullifiersByTxHashResponse, a, b);
   }
 }
 
