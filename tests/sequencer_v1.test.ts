@@ -1,6 +1,8 @@
 import {
   GetCommitmentsByTxHashRequest,
-  GetCommitmentsByTxHashResponse, GetNullifiersByTxHashRequest, GetNullifiersByTxHashResponse
+  GetCommitmentsByTxHashResponse,
+  GetNullifiersByTxHashRequest,
+  GetNullifiersByTxHashResponse,
 } from '../buf_gen/mystiko/sequencer/v1/service_pb';
 import { data, sequencer } from '../src';
 
