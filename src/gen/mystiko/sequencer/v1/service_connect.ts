@@ -10,8 +10,12 @@ import {
   ContractLoadedBlockResponse,
   FetchChainRequest,
   FetchChainResponse,
+  GetCommitmentsByTxHashRequest,
+  GetCommitmentsByTxHashResponse,
   GetCommitmentsRequest,
   GetCommitmentsResponse,
+  GetNullifiersByTxHashRequest,
+  GetNullifiersByTxHashResponse,
   GetNullifiersRequest,
   GetNullifiersResponse,
   HealthCheckRequest,
@@ -62,12 +66,30 @@ export const SequencerService = {
       kind: MethodKind.Unary,
     },
     /**
+     * @generated from rpc mystiko.sequencer.v1.SequencerService.GetCommitmentsByTxHash
+     */
+    getCommitmentsByTxHash: {
+      name: 'GetCommitmentsByTxHash',
+      I: GetCommitmentsByTxHashRequest,
+      O: GetCommitmentsByTxHashResponse,
+      kind: MethodKind.Unary,
+    },
+    /**
      * @generated from rpc mystiko.sequencer.v1.SequencerService.GetNullifiers
      */
     getNullifiers: {
       name: 'GetNullifiers',
       I: GetNullifiersRequest,
       O: GetNullifiersResponse,
+      kind: MethodKind.Unary,
+    },
+    /**
+     * @generated from rpc mystiko.sequencer.v1.SequencerService.GetNullifiersByTxHash
+     */
+    getNullifiersByTxHash: {
+      name: 'GetNullifiersByTxHash',
+      I: GetNullifiersByTxHashRequest,
+      O: GetNullifiersByTxHashResponse,
       kind: MethodKind.Unary,
     },
     /**
