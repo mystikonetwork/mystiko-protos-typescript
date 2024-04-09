@@ -1,18 +1,16 @@
-import {
-  GetCommitmentsByTxHashRequest,
-  GetCommitmentsByTxHashResponse,
-  GetNullifiersByTxHashRequest,
-  GetNullifiersByTxHashResponse,
-} from '../buf_gen/mystiko/sequencer/v1/service_pb';
 import { data, sequencer } from '../src';
 
 const { Commitment, CommitmentStatus, Nullifier } = data.v1;
 
 const {
   GetCommitmentsRequest,
+  GetCommitmentsByTxHashRequest,
   GetCommitmentsResponse,
+  GetCommitmentsByTxHashResponse,
   GetNullifiersRequest,
+  GetNullifiersByTxHashRequest,
   GetNullifiersResponse,
+  GetNullifiersByTxHashResponse,
   ChainLoadedBlockRequest,
   ChainLoadedBlockResponse,
   ContractLoadedBlockRequest,
