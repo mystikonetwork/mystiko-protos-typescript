@@ -194,42 +194,47 @@ export class SendDepositOptions extends Message<SendDepositOptions> {
   privateKey?: string;
 
   /**
-   * @generated from field: optional uint64 query_timeout_ms = 3;
+   * @generated from field: optional string signer_provider = 3;
+   */
+  signerProvider?: string;
+
+  /**
+   * @generated from field: optional uint64 query_timeout_ms = 4;
    */
   queryTimeoutMs?: bigint;
 
   /**
-   * @generated from field: optional uint64 asset_approve_confirmations = 4;
+   * @generated from field: optional uint64 asset_approve_confirmations = 5;
    */
   assetApproveConfirmations?: bigint;
 
   /**
-   * @generated from field: optional uint64 deposit_confirmations = 5;
+   * @generated from field: optional uint64 deposit_confirmations = 6;
    */
   depositConfirmations?: bigint;
 
   /**
-   * @generated from field: optional uint64 tx_send_timeout_ms = 6;
+   * @generated from field: optional uint64 tx_send_timeout_ms = 7;
    */
   txSendTimeoutMs?: bigint;
 
   /**
-   * @generated from field: optional uint64 tx_wait_timeout_ms = 7;
+   * @generated from field: optional uint64 tx_wait_timeout_ms = 8;
    */
   txWaitTimeoutMs?: bigint;
 
   /**
-   * @generated from field: optional uint64 tx_wait_interval_ms = 8;
+   * @generated from field: optional uint64 tx_wait_interval_ms = 9;
    */
   txWaitIntervalMs?: bigint;
 
   /**
-   * @generated from field: optional mystiko.core.v1.Transaction asset_approve_tx = 9;
+   * @generated from field: optional mystiko.core.v1.Transaction asset_approve_tx = 10;
    */
   assetApproveTx?: Transaction;
 
   /**
-   * @generated from field: optional mystiko.core.v1.Transaction deposit_tx = 10;
+   * @generated from field: optional mystiko.core.v1.Transaction deposit_tx = 11;
    */
   depositTx?: Transaction;
 
@@ -243,14 +248,15 @@ export class SendDepositOptions extends Message<SendDepositOptions> {
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: 'deposit_id', kind: 'scalar', T: 9 /* ScalarType.STRING */ },
     { no: 2, name: 'private_key', kind: 'scalar', T: 9 /* ScalarType.STRING */, opt: true },
-    { no: 3, name: 'query_timeout_ms', kind: 'scalar', T: 4 /* ScalarType.UINT64 */, opt: true },
-    { no: 4, name: 'asset_approve_confirmations', kind: 'scalar', T: 4 /* ScalarType.UINT64 */, opt: true },
-    { no: 5, name: 'deposit_confirmations', kind: 'scalar', T: 4 /* ScalarType.UINT64 */, opt: true },
-    { no: 6, name: 'tx_send_timeout_ms', kind: 'scalar', T: 4 /* ScalarType.UINT64 */, opt: true },
-    { no: 7, name: 'tx_wait_timeout_ms', kind: 'scalar', T: 4 /* ScalarType.UINT64 */, opt: true },
-    { no: 8, name: 'tx_wait_interval_ms', kind: 'scalar', T: 4 /* ScalarType.UINT64 */, opt: true },
-    { no: 9, name: 'asset_approve_tx', kind: 'message', T: Transaction, opt: true },
-    { no: 10, name: 'deposit_tx', kind: 'message', T: Transaction, opt: true },
+    { no: 3, name: 'signer_provider', kind: 'scalar', T: 9 /* ScalarType.STRING */, opt: true },
+    { no: 4, name: 'query_timeout_ms', kind: 'scalar', T: 4 /* ScalarType.UINT64 */, opt: true },
+    { no: 5, name: 'asset_approve_confirmations', kind: 'scalar', T: 4 /* ScalarType.UINT64 */, opt: true },
+    { no: 6, name: 'deposit_confirmations', kind: 'scalar', T: 4 /* ScalarType.UINT64 */, opt: true },
+    { no: 7, name: 'tx_send_timeout_ms', kind: 'scalar', T: 4 /* ScalarType.UINT64 */, opt: true },
+    { no: 8, name: 'tx_wait_timeout_ms', kind: 'scalar', T: 4 /* ScalarType.UINT64 */, opt: true },
+    { no: 9, name: 'tx_wait_interval_ms', kind: 'scalar', T: 4 /* ScalarType.UINT64 */, opt: true },
+    { no: 10, name: 'asset_approve_tx', kind: 'message', T: Transaction, opt: true },
+    { no: 11, name: 'deposit_tx', kind: 'message', T: Transaction, opt: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): SendDepositOptions {
