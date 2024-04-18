@@ -12,7 +12,7 @@ import type {
   PlainMessage,
 } from '@bufbuild/protobuf';
 import { Message, proto3, protoInt64 } from '@bufbuild/protobuf';
-import { Commitment } from '../../data/v1/commitment_pb.js';
+import { Commitment, CommitmentStatus } from '../../data/v1/commitment_pb.js';
 import { Nullifier } from '../../data/v1/nullifier_pb.js';
 
 /**
@@ -642,6 +642,134 @@ export class GetCommitmentsByTxHashResponse extends Message<GetCommitmentsByTxHa
     b: GetCommitmentsByTxHashResponse | PlainMessage<GetCommitmentsByTxHashResponse> | undefined,
   ): boolean {
     return proto3.util.equals(GetCommitmentsByTxHashResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message mystiko.sequencer.v1.GetCommitmentHashesRequest
+ */
+export class GetCommitmentHashesRequest extends Message<GetCommitmentHashesRequest> {
+  /**
+   * @generated from field: uint64 chain_id = 1;
+   */
+  chainId = protoInt64.zero;
+
+  /**
+   * @generated from field: bytes contract_address = 2;
+   */
+  contractAddress = new Uint8Array(0);
+
+  /**
+   * @generated from field: optional uint64 from_leaf_index = 3;
+   */
+  fromLeafIndex?: bigint;
+
+  /**
+   * @generated from field: optional uint64 to_leaf_index = 4;
+   */
+  toLeafIndex?: bigint;
+
+  /**
+   * @generated from field: optional mystiko.data.v1.CommitmentStatus status = 5;
+   */
+  status?: CommitmentStatus;
+
+  constructor(data?: PartialMessage<GetCommitmentHashesRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = 'mystiko.sequencer.v1.GetCommitmentHashesRequest';
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: 'chain_id', kind: 'scalar', T: 4 /* ScalarType.UINT64 */ },
+    { no: 2, name: 'contract_address', kind: 'scalar', T: 12 /* ScalarType.BYTES */ },
+    { no: 3, name: 'from_leaf_index', kind: 'scalar', T: 4 /* ScalarType.UINT64 */, opt: true },
+    { no: 4, name: 'to_leaf_index', kind: 'scalar', T: 4 /* ScalarType.UINT64 */, opt: true },
+    { no: 5, name: 'status', kind: 'enum', T: proto3.getEnumType(CommitmentStatus), opt: true },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): GetCommitmentHashesRequest {
+    return new GetCommitmentHashesRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): GetCommitmentHashesRequest {
+    return new GetCommitmentHashesRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): GetCommitmentHashesRequest {
+    return new GetCommitmentHashesRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(
+    a: GetCommitmentHashesRequest | PlainMessage<GetCommitmentHashesRequest> | undefined,
+    b: GetCommitmentHashesRequest | PlainMessage<GetCommitmentHashesRequest> | undefined,
+  ): boolean {
+    return proto3.util.equals(GetCommitmentHashesRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message mystiko.sequencer.v1.GetCommitmentHashesResponse
+ */
+export class GetCommitmentHashesResponse extends Message<GetCommitmentHashesResponse> {
+  /**
+   * @generated from field: uint64 chain_id = 1;
+   */
+  chainId = protoInt64.zero;
+
+  /**
+   * @generated from field: bytes contract_address = 2;
+   */
+  contractAddress = new Uint8Array(0);
+
+  /**
+   * @generated from field: uint64 from_leaf_index = 3;
+   */
+  fromLeafIndex = protoInt64.zero;
+
+  /**
+   * @generated from field: uint64 to_leaf_index = 4;
+   */
+  toLeafIndex = protoInt64.zero;
+
+  /**
+   * @generated from field: repeated bytes commitment_hashes = 5;
+   */
+  commitmentHashes: Uint8Array[] = [];
+
+  constructor(data?: PartialMessage<GetCommitmentHashesResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = 'mystiko.sequencer.v1.GetCommitmentHashesResponse';
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: 'chain_id', kind: 'scalar', T: 4 /* ScalarType.UINT64 */ },
+    { no: 2, name: 'contract_address', kind: 'scalar', T: 12 /* ScalarType.BYTES */ },
+    { no: 3, name: 'from_leaf_index', kind: 'scalar', T: 4 /* ScalarType.UINT64 */ },
+    { no: 4, name: 'to_leaf_index', kind: 'scalar', T: 4 /* ScalarType.UINT64 */ },
+    { no: 5, name: 'commitment_hashes', kind: 'scalar', T: 12 /* ScalarType.BYTES */, repeated: true },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): GetCommitmentHashesResponse {
+    return new GetCommitmentHashesResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): GetCommitmentHashesResponse {
+    return new GetCommitmentHashesResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): GetCommitmentHashesResponse {
+    return new GetCommitmentHashesResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(
+    a: GetCommitmentHashesResponse | PlainMessage<GetCommitmentHashesResponse> | undefined,
+    b: GetCommitmentHashesResponse | PlainMessage<GetCommitmentHashesResponse> | undefined,
+  ): boolean {
+    return proto3.util.equals(GetCommitmentHashesResponse, a, b);
   }
 }
 

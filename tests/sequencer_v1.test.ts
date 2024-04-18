@@ -7,6 +7,8 @@ const {
   GetCommitmentsByTxHashRequest,
   GetCommitmentsResponse,
   GetCommitmentsByTxHashResponse,
+  GetCommitmentHashesRequest,
+  GetCommitmentHashesResponse,
   GetNullifiersRequest,
   GetNullifiersByTxHashRequest,
   GetNullifiersResponse,
@@ -127,6 +129,20 @@ test('test serde', () => {
         srcChainTransactionHash: new Uint8Array([0xba, 0xbe]),
       }),
     ],
+  });
+  const getCommitmentHashesRequest = new GetCommitmentHashesRequest({
+    chainId: BigInt(1),
+    contractAddress: new Uint8Array([0xba, 0xad, 0xba, 0xbe]),
+    status: CommitmentStatus.INCLUDED,
+    fromLeafIndex: BigInt(0),
+    toLeafIndex: BigInt(1),
+  });
+  const getCommitmentHashesResponse = new GetCommitmentHashesResponse({
+    chainId: BigInt(1),
+    contractAddress: new Uint8Array([0xba, 0xad, 0xba, 0xbe]),
+    commitmentHashes: [new Uint8Array([0xba, 0xad, 0xba, 0xbe])],
+    fromLeafIndex: BigInt(0),
+    toLeafIndex: BigInt(1),
   });
   const getNullifierRequest = new GetNullifiersRequest({
     chainId: BigInt(1),
@@ -378,6 +394,44 @@ test('test serde', () => {
     GetCommitmentsByTxHashResponse.equals(
       GetCommitmentsByTxHashResponse.fromBinary(getCommitmentsByTxHashResponse.toBinary()),
       getCommitmentsByTxHashResponse,
+    ),
+  ).toBe(true);
+
+  expect(
+    GetCommitmentHashesRequest.equals(
+      GetCommitmentHashesRequest.fromJson(getCommitmentHashesRequest.toJson()),
+      getCommitmentHashesRequest,
+    ),
+  ).toBe(true);
+  expect(
+    GetCommitmentHashesRequest.equals(
+      GetCommitmentHashesRequest.fromJsonString(getCommitmentHashesRequest.toJsonString()),
+      getCommitmentHashesRequest,
+    ),
+  ).toBe(true);
+  expect(
+    GetCommitmentHashesRequest.equals(
+      GetCommitmentHashesRequest.fromBinary(getCommitmentHashesRequest.toBinary()),
+      getCommitmentHashesRequest,
+    ),
+  ).toBe(true);
+
+  expect(
+    GetCommitmentHashesResponse.equals(
+      GetCommitmentHashesResponse.fromJson(getCommitmentHashesResponse.toJson()),
+      getCommitmentHashesResponse,
+    ),
+  ).toBe(true);
+  expect(
+    GetCommitmentHashesResponse.equals(
+      GetCommitmentHashesResponse.fromJsonString(getCommitmentHashesResponse.toJsonString()),
+      getCommitmentHashesResponse,
+    ),
+  ).toBe(true);
+  expect(
+    GetCommitmentHashesResponse.equals(
+      GetCommitmentHashesResponse.fromBinary(getCommitmentHashesResponse.toBinary()),
+      getCommitmentHashesResponse,
     ),
   ).toBe(true);
 
