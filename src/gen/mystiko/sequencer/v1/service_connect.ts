@@ -10,6 +10,8 @@ import {
   ContractLoadedBlockResponse,
   FetchChainRequest,
   FetchChainResponse,
+  GetCommitmentHashesRequest,
+  GetCommitmentHashesResponse,
   GetCommitmentsByTxHashRequest,
   GetCommitmentsByTxHashResponse,
   GetCommitmentsRequest,
@@ -72,6 +74,15 @@ export const SequencerService = {
       name: 'GetCommitmentsByTxHash',
       I: GetCommitmentsByTxHashRequest,
       O: GetCommitmentsByTxHashResponse,
+      kind: MethodKind.Unary,
+    },
+    /**
+     * @generated from rpc mystiko.sequencer.v1.SequencerService.GetCommitmentHashes
+     */
+    getCommitmentHashes: {
+      name: 'GetCommitmentHashes',
+      I: GetCommitmentHashesRequest,
+      O: GetCommitmentHashesResponse,
       kind: MethodKind.Unary,
     },
     /**
