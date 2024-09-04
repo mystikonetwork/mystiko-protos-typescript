@@ -15,6 +15,7 @@ import { Message, proto3 } from '@bufbuild/protobuf';
 import { ConfigOptions } from '../../common/v1/config_pb.js';
 import { RelayerClientOptions } from '../../relayer/v1/client_pb.js';
 import { LoaderConfig } from '../../loader/v1/loader_pb.js';
+import { ScreeningClientOptions } from '../../screening/v1/client_pb.js';
 
 /**
  * @generated from message mystiko.core.v1.MystikoOptions
@@ -45,6 +46,11 @@ export class MystikoOptions extends Message<MystikoOptions> {
    */
   staticCachePath?: string;
 
+  /**
+   * @generated from field: optional mystiko.screening.v1.ScreeningClientOptions screening_client_options = 6;
+   */
+  screeningClientOptions?: ScreeningClientOptions;
+
   constructor(data?: PartialMessage<MystikoOptions>) {
     super();
     proto3.util.initPartial(data, this);
@@ -58,6 +64,7 @@ export class MystikoOptions extends Message<MystikoOptions> {
     { no: 3, name: 'loader_config', kind: 'message', T: LoaderConfig, opt: true },
     { no: 4, name: 'db_path', kind: 'scalar', T: 9 /* ScalarType.STRING */, opt: true },
     { no: 5, name: 'static_cache_path', kind: 'scalar', T: 9 /* ScalarType.STRING */, opt: true },
+    { no: 6, name: 'screening_client_options', kind: 'message', T: ScreeningClientOptions, opt: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MystikoOptions {

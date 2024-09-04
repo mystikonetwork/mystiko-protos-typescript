@@ -238,6 +238,11 @@ export class SendDepositOptions extends Message<SendDepositOptions> {
    */
   depositTx?: Transaction;
 
+  /**
+   * @generated from field: optional string screening_message = 12;
+   */
+  screeningMessage?: string;
+
   constructor(data?: PartialMessage<SendDepositOptions>) {
     super();
     proto3.util.initPartial(data, this);
@@ -257,6 +262,7 @@ export class SendDepositOptions extends Message<SendDepositOptions> {
     { no: 9, name: 'tx_wait_interval_ms', kind: 'scalar', T: 4 /* ScalarType.UINT64 */, opt: true },
     { no: 10, name: 'asset_approve_tx', kind: 'message', T: Transaction, opt: true },
     { no: 11, name: 'deposit_tx', kind: 'message', T: Transaction, opt: true },
+    { no: 12, name: 'screening_message', kind: 'scalar', T: 9 /* ScalarType.STRING */, opt: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): SendDepositOptions {

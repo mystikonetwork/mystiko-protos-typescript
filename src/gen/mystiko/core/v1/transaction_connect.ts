@@ -6,6 +6,8 @@
 import {
   GetAddressRequest,
   GetAddressResponse,
+  PersonalSignRequest,
+  PersonalSignResponse,
   SendTransactionRequest,
   SendTransactionResponse,
 } from './transaction_pb.js';
@@ -33,6 +35,15 @@ export const TransactionService = {
       name: 'SendTransaction',
       I: SendTransactionRequest,
       O: SendTransactionResponse,
+      kind: MethodKind.Unary,
+    },
+    /**
+     * @generated from rpc mystiko.core.v1.TransactionService.PersonalSign
+     */
+    personalSign: {
+      name: 'PersonalSign',
+      I: PersonalSignRequest,
+      O: PersonalSignResponse,
       kind: MethodKind.Unary,
     },
   },

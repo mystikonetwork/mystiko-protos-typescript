@@ -170,6 +170,36 @@ export enum CircuitType {
    * @generated from enum value: CIRCUIT_TYPE_TRANSACTION2X2 = 11;
    */
   TRANSACTION2X2 = 11,
+
+  /**
+   * @generated from enum value: CIRCUIT_TYPE_ROLLUP_32 = 12;
+   */
+  ROLLUP_32 = 12,
+
+  /**
+   * @generated from enum value: CIRCUIT_TYPE_ROLLUP_64 = 13;
+   */
+  ROLLUP_64 = 13,
+
+  /**
+   * @generated from enum value: CIRCUIT_TYPE_ROLLUP_128 = 14;
+   */
+  ROLLUP_128 = 14,
+
+  /**
+   * @generated from enum value: CIRCUIT_TYPE_ROLLUP_256 = 15;
+   */
+  ROLLUP_256 = 15,
+
+  /**
+   * @generated from enum value: CIRCUIT_TYPE_ROLLUP_512 = 16;
+   */
+  ROLLUP_512 = 16,
+
+  /**
+   * @generated from enum value: CIRCUIT_TYPE_ROLLUP_1024 = 17;
+   */
+  ROLLUP_1024 = 17,
 }
 // Retrieve enum metadata with: proto3.getEnumType(CircuitType)
 proto3.util.setEnumType(CircuitType, 'mystiko.common.v1.CircuitType', [
@@ -185,6 +215,12 @@ proto3.util.setEnumType(CircuitType, 'mystiko.common.v1.CircuitType', [
   { no: 9, name: 'CIRCUIT_TYPE_TRANSACTION2X0' },
   { no: 10, name: 'CIRCUIT_TYPE_TRANSACTION2X1' },
   { no: 11, name: 'CIRCUIT_TYPE_TRANSACTION2X2' },
+  { no: 12, name: 'CIRCUIT_TYPE_ROLLUP_32' },
+  { no: 13, name: 'CIRCUIT_TYPE_ROLLUP_64' },
+  { no: 14, name: 'CIRCUIT_TYPE_ROLLUP_128' },
+  { no: 15, name: 'CIRCUIT_TYPE_ROLLUP_256' },
+  { no: 16, name: 'CIRCUIT_TYPE_ROLLUP_512' },
+  { no: 17, name: 'CIRCUIT_TYPE_ROLLUP_1024' },
 ]);
 
 /**

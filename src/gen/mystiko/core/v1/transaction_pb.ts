@@ -419,6 +419,92 @@ export class GetAddressResponse extends Message<GetAddressResponse> {
 }
 
 /**
+ * @generated from message mystiko.core.v1.PersonalSignRequest
+ */
+export class PersonalSignRequest extends Message<PersonalSignRequest> {
+  /**
+   * @generated from field: string message = 1;
+   */
+  message = '';
+
+  /**
+   * @generated from field: string address = 2;
+   */
+  address = '';
+
+  constructor(data?: PartialMessage<PersonalSignRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = 'mystiko.core.v1.PersonalSignRequest';
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: 'message', kind: 'scalar', T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: 'address', kind: 'scalar', T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): PersonalSignRequest {
+    return new PersonalSignRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): PersonalSignRequest {
+    return new PersonalSignRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): PersonalSignRequest {
+    return new PersonalSignRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(
+    a: PersonalSignRequest | PlainMessage<PersonalSignRequest> | undefined,
+    b: PersonalSignRequest | PlainMessage<PersonalSignRequest> | undefined,
+  ): boolean {
+    return proto3.util.equals(PersonalSignRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message mystiko.core.v1.PersonalSignResponse
+ */
+export class PersonalSignResponse extends Message<PersonalSignResponse> {
+  /**
+   * @generated from field: string signature = 1;
+   */
+  signature = '';
+
+  constructor(data?: PartialMessage<PersonalSignResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = 'mystiko.core.v1.PersonalSignResponse';
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: 'signature', kind: 'scalar', T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): PersonalSignResponse {
+    return new PersonalSignResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): PersonalSignResponse {
+    return new PersonalSignResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): PersonalSignResponse {
+    return new PersonalSignResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(
+    a: PersonalSignResponse | PlainMessage<PersonalSignResponse> | undefined,
+    b: PersonalSignResponse | PlainMessage<PersonalSignResponse> | undefined,
+  ): boolean {
+    return proto3.util.equals(PersonalSignResponse, a, b);
+  }
+}
+
+/**
  * @generated from message mystiko.core.v1.SendTransactionRequest
  */
 export class SendTransactionRequest extends Message<SendTransactionRequest> {
