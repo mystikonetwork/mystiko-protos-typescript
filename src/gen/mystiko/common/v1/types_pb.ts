@@ -43,6 +43,11 @@ export enum BridgeType {
    * @generated from enum value: BRIDGE_TYPE_AXELAR = 6;
    */
   AXELAR = 6,
+
+  /**
+   * @generated from enum value: BRIDGE_TYPE_WORMHOLE = 7;
+   */
+  WORMHOLE = 7,
 }
 // Retrieve enum metadata with: proto3.getEnumType(BridgeType)
 proto3.util.setEnumType(BridgeType, 'mystiko.common.v1.BridgeType', [
@@ -53,6 +58,7 @@ proto3.util.setEnumType(BridgeType, 'mystiko.common.v1.BridgeType', [
   { no: 4, name: 'BRIDGE_TYPE_CELER' },
   { no: 5, name: 'BRIDGE_TYPE_LAYER_ZERO' },
   { no: 6, name: 'BRIDGE_TYPE_AXELAR' },
+  { no: 7, name: 'BRIDGE_TYPE_WORMHOLE' },
 ]);
 
 /**
