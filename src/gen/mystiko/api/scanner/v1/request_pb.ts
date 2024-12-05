@@ -16,6 +16,7 @@ import { ScanOptions } from '../../../core/scanner/v1/scan_pb.js';
 import { ScannerResetOptions } from '../../../core/scanner/v1/reset_pb.js';
 import { BalanceOptions } from '../../../core/scanner/v1/balance_pb.js';
 import { AssetsOptions } from '../../../core/scanner/v1/asset_pb.js';
+import { AssetImportOptions } from '../../../core/scanner/v1/import_pb.js';
 
 /**
  * @generated from message mystiko.api.scanner.v1.ScanRequest
@@ -220,5 +221,45 @@ export class ChainAssetsRequest extends Message<ChainAssetsRequest> {
     b: ChainAssetsRequest | PlainMessage<ChainAssetsRequest> | undefined,
   ): boolean {
     return proto3.util.equals(ChainAssetsRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message mystiko.api.scanner.v1.AssetImportRequest
+ */
+export class AssetImportRequest extends Message<AssetImportRequest> {
+  /**
+   * @generated from field: mystiko.core.scanner.v1.AssetImportOptions options = 1;
+   */
+  options?: AssetImportOptions;
+
+  constructor(data?: PartialMessage<AssetImportRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = 'mystiko.api.scanner.v1.AssetImportRequest';
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: 'options', kind: 'message', T: AssetImportOptions },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): AssetImportRequest {
+    return new AssetImportRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): AssetImportRequest {
+    return new AssetImportRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): AssetImportRequest {
+    return new AssetImportRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(
+    a: AssetImportRequest | PlainMessage<AssetImportRequest> | undefined,
+    b: AssetImportRequest | PlainMessage<AssetImportRequest> | undefined,
+  ): boolean {
+    return proto3.util.equals(AssetImportRequest, a, b);
   }
 }

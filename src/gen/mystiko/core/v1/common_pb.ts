@@ -71,38 +71,62 @@ export enum SpendStatus {
   UNSPECIFIED = 0,
 
   /**
-   * @generated from enum value: SPEND_STATUS_PROOF_GENERATING = 1;
+   * @generated from enum value: SPEND_STATUS_MERKLE_TREE_FETCHING = 1;
    */
-  PROOF_GENERATING = 1,
+  MERKLE_TREE_FETCHING = 1,
 
   /**
-   * @generated from enum value: SPEND_STATUS_PROOF_GENERATED = 2;
+   * @generated from enum value: SPEND_STATUS_MERKLE_TREE_FETCHED = 2;
    */
-  PROOF_GENERATED = 2,
+  MERKLE_TREE_FETCHED = 2,
 
   /**
-   * @generated from enum value: SPEND_STATUS_PENDING = 3;
+   * @generated from enum value: SPEND_STATUS_STATIC_ASSETS_FETCHING = 3;
    */
-  PENDING = 3,
+  STATIC_ASSETS_FETCHING = 3,
 
   /**
-   * @generated from enum value: SPEND_STATUS_SUCCEEDED = 4;
+   * @generated from enum value: SPEND_STATUS_STATIC_ASSETS_FETCHED = 4;
    */
-  SUCCEEDED = 4,
+  STATIC_ASSETS_FETCHED = 4,
 
   /**
-   * @generated from enum value: SPEND_STATUS_FAILED = 5;
+   * @generated from enum value: SPEND_STATUS_PROOF_GENERATING = 5;
    */
-  FAILED = 5,
+  PROOF_GENERATING = 5,
+
+  /**
+   * @generated from enum value: SPEND_STATUS_PROOF_GENERATED = 6;
+   */
+  PROOF_GENERATED = 6,
+
+  /**
+   * @generated from enum value: SPEND_STATUS_PENDING = 7;
+   */
+  PENDING = 7,
+
+  /**
+   * @generated from enum value: SPEND_STATUS_SUCCEEDED = 8;
+   */
+  SUCCEEDED = 8,
+
+  /**
+   * @generated from enum value: SPEND_STATUS_FAILED = 9;
+   */
+  FAILED = 9,
 }
 // Retrieve enum metadata with: proto3.getEnumType(SpendStatus)
 proto3.util.setEnumType(SpendStatus, 'mystiko.core.v1.SpendStatus', [
   { no: 0, name: 'SPEND_STATUS_UNSPECIFIED' },
-  { no: 1, name: 'SPEND_STATUS_PROOF_GENERATING' },
-  { no: 2, name: 'SPEND_STATUS_PROOF_GENERATED' },
-  { no: 3, name: 'SPEND_STATUS_PENDING' },
-  { no: 4, name: 'SPEND_STATUS_SUCCEEDED' },
-  { no: 5, name: 'SPEND_STATUS_FAILED' },
+  { no: 1, name: 'SPEND_STATUS_MERKLE_TREE_FETCHING' },
+  { no: 2, name: 'SPEND_STATUS_MERKLE_TREE_FETCHED' },
+  { no: 3, name: 'SPEND_STATUS_STATIC_ASSETS_FETCHING' },
+  { no: 4, name: 'SPEND_STATUS_STATIC_ASSETS_FETCHED' },
+  { no: 5, name: 'SPEND_STATUS_PROOF_GENERATING' },
+  { no: 6, name: 'SPEND_STATUS_PROOF_GENERATED' },
+  { no: 7, name: 'SPEND_STATUS_PENDING' },
+  { no: 8, name: 'SPEND_STATUS_SUCCEEDED' },
+  { no: 9, name: 'SPEND_STATUS_FAILED' },
 ]);
 
 /**

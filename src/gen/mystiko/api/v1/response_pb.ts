@@ -654,6 +654,36 @@ export enum SpendError {
    * @generated from enum value: SPEND_ERROR_GRPC_CONNECT_ERROR = 43;
    */
   GRPC_CONNECT_ERROR = 43,
+
+  /**
+   * @generated from enum value: SPEND_ERROR_STD_IO_ERROR = 44;
+   */
+  STD_IO_ERROR = 44,
+
+  /**
+   * @generated from enum value: SPEND_ERROR_PROTOS_ERROR = 45;
+   */
+  PROTOS_ERROR = 45,
+
+  /**
+   * @generated from enum value: SPEND_ERROR_FETCHER_ERROR = 46;
+   */
+  FETCHER_ERROR = 46,
+
+  /**
+   * @generated from enum value: SPEND_ERROR_MISSING_RESOURCE_ERROR = 47;
+   */
+  MISSING_RESOURCE_ERROR = 47,
+
+  /**
+   * @generated from enum value: SPEND_ERROR_RAW_RESOURCE_ERROR = 48;
+   */
+  RAW_RESOURCE_ERROR = 48,
+
+  /**
+   * @generated from enum value: SPEND_ERROR_FETCH_FROM_PROVIDER_ERROR = 49;
+   */
+  FETCH_FROM_PROVIDER_ERROR = 49,
 }
 // Retrieve enum metadata with: proto3.getEnumType(SpendError)
 proto3.util.setEnumType(SpendError, 'mystiko.api.v1.SpendError', [
@@ -701,6 +731,12 @@ proto3.util.setEnumType(SpendError, 'mystiko.api.v1.SpendError', [
   { no: 41, name: 'SPEND_ERROR_GET_MYSTIKO_GUARD_ERROR' },
   { no: 42, name: 'SPEND_ERROR_DESERIALIZE_MESSAGE_ERROR' },
   { no: 43, name: 'SPEND_ERROR_GRPC_CONNECT_ERROR' },
+  { no: 44, name: 'SPEND_ERROR_STD_IO_ERROR' },
+  { no: 45, name: 'SPEND_ERROR_PROTOS_ERROR' },
+  { no: 46, name: 'SPEND_ERROR_FETCHER_ERROR' },
+  { no: 47, name: 'SPEND_ERROR_MISSING_RESOURCE_ERROR' },
+  { no: 48, name: 'SPEND_ERROR_RAW_RESOURCE_ERROR' },
+  { no: 49, name: 'SPEND_ERROR_FETCH_FROM_PROVIDER_ERROR' },
 ]);
 
 /**
@@ -781,6 +817,16 @@ export enum ScannerError {
    * @generated from enum value: SCANNER_ERROR_PROTOCOL_KEY_ERROR = 14;
    */
   PROTOCOL_KEY_ERROR = 14,
+
+  /**
+   * @generated from enum value: SCANNER_ERROR_PROVIDER_ERROR = 15;
+   */
+  PROVIDER_ERROR = 15,
+
+  /**
+   * @generated from enum value: SCANNER_ERROR_COMMITMENT_POOL_CONTRACTS_ERROR = 16;
+   */
+  COMMITMENT_POOL_CONTRACTS_ERROR = 16,
 }
 // Retrieve enum metadata with: proto3.getEnumType(ScannerError)
 proto3.util.setEnumType(ScannerError, 'mystiko.api.v1.ScannerError', [
@@ -799,6 +845,8 @@ proto3.util.setEnumType(ScannerError, 'mystiko.api.v1.ScannerError', [
   { no: 12, name: 'SCANNER_ERROR_GET_MYSTIKO_GUARD_ERROR' },
   { no: 13, name: 'SCANNER_ERROR_DESERIALIZE_MESSAGE_ERROR' },
   { no: 14, name: 'SCANNER_ERROR_PROTOCOL_KEY_ERROR' },
+  { no: 15, name: 'SCANNER_ERROR_PROVIDER_ERROR' },
+  { no: 16, name: 'SCANNER_ERROR_COMMITMENT_POOL_CONTRACTS_ERROR' },
 ]);
 
 /**

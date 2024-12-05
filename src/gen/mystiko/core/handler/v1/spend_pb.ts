@@ -300,6 +300,31 @@ export class SendSpendOptions extends Message<SendSpendOptions> {
    */
   tx?: Transaction;
 
+  /**
+   * @generated from field: optional bytes raw_merkle_tree = 13;
+   */
+  rawMerkleTree?: Uint8Array;
+
+  /**
+   * @generated from field: optional bytes raw_zk_program = 14;
+   */
+  rawZkProgram?: Uint8Array;
+
+  /**
+   * @generated from field: optional bytes raw_zk_proving_key = 15;
+   */
+  rawZkProvingKey?: Uint8Array;
+
+  /**
+   * @generated from field: optional bytes raw_zk_verifying_key = 16;
+   */
+  rawZkVerifyingKey?: Uint8Array;
+
+  /**
+   * @generated from field: optional bytes raw_zk_abi = 17;
+   */
+  rawZkAbi?: Uint8Array;
+
   constructor(data?: PartialMessage<SendSpendOptions>) {
     super();
     proto3.util.initPartial(data, this);
@@ -320,6 +345,11 @@ export class SendSpendOptions extends Message<SendSpendOptions> {
     { no: 10, name: 'relayer_wait_timeout_ms', kind: 'scalar', T: 4 /* ScalarType.UINT64 */, opt: true },
     { no: 11, name: 'relayer_wait_interval_ms', kind: 'scalar', T: 4 /* ScalarType.UINT64 */, opt: true },
     { no: 12, name: 'tx', kind: 'message', T: Transaction, opt: true },
+    { no: 13, name: 'raw_merkle_tree', kind: 'scalar', T: 12 /* ScalarType.BYTES */, opt: true },
+    { no: 14, name: 'raw_zk_program', kind: 'scalar', T: 12 /* ScalarType.BYTES */, opt: true },
+    { no: 15, name: 'raw_zk_proving_key', kind: 'scalar', T: 12 /* ScalarType.BYTES */, opt: true },
+    { no: 16, name: 'raw_zk_verifying_key', kind: 'scalar', T: 12 /* ScalarType.BYTES */, opt: true },
+    { no: 17, name: 'raw_zk_abi', kind: 'scalar', T: 12 /* ScalarType.BYTES */, opt: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): SendSpendOptions {
