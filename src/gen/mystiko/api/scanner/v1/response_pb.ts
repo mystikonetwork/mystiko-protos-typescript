@@ -12,11 +12,51 @@ import type {
   PlainMessage,
 } from '@bufbuild/protobuf';
 import { Message, proto3 } from '@bufbuild/protobuf';
+import { BalanceResult } from '../../../core/scanner/v1/balance_pb.js';
 import { ScanResult } from '../../../core/scanner/v1/scan_pb.js';
 import { ResetResult } from '../../../core/scanner/v1/reset_pb.js';
-import { BalanceResult } from '../../../core/scanner/v1/balance_pb.js';
 import { AssetsByChain } from '../../../core/scanner/v1/asset_pb.js';
 import { AssetImportResult } from '../../../core/scanner/v1/import_pb.js';
+
+/**
+ * @generated from message mystiko.api.scanner.v1.SyncResponse
+ */
+export class SyncResponse extends Message<SyncResponse> {
+  /**
+   * @generated from field: mystiko.core.scanner.v1.BalanceResult result = 1;
+   */
+  result?: BalanceResult;
+
+  constructor(data?: PartialMessage<SyncResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = 'mystiko.api.scanner.v1.SyncResponse';
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: 'result', kind: 'message', T: BalanceResult },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): SyncResponse {
+    return new SyncResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): SyncResponse {
+    return new SyncResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): SyncResponse {
+    return new SyncResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(
+    a: SyncResponse | PlainMessage<SyncResponse> | undefined,
+    b: SyncResponse | PlainMessage<SyncResponse> | undefined,
+  ): boolean {
+    return proto3.util.equals(SyncResponse, a, b);
+  }
+}
 
 /**
  * @generated from message mystiko.api.scanner.v1.ScanResponse
