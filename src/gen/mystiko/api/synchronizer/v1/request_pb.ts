@@ -12,7 +12,7 @@ import type {
   PlainMessage,
 } from '@bufbuild/protobuf';
 import { Message, proto3, protoInt64 } from '@bufbuild/protobuf';
-import { SyncOptions } from '../../../core/synchronizer/v1/sync_pb.js';
+import { SynchronizerSyncOptions } from '../../../core/synchronizer/v1/sync_pb.js';
 import { SynchronizerResetOptions } from '../../../core/synchronizer/v1/reset_pb.js';
 
 /**
@@ -102,82 +102,82 @@ export class ContractSyncedBlockRequest extends Message<ContractSyncedBlockReque
 }
 
 /**
- * @generated from message mystiko.api.synchronizer.v1.StatusRequest
+ * @generated from message mystiko.api.synchronizer.v1.SynchronizerStatusRequest
  */
-export class StatusRequest extends Message<StatusRequest> {
+export class SynchronizerStatusRequest extends Message<SynchronizerStatusRequest> {
   /**
    * @generated from field: bool with_contracts = 1;
    */
   withContracts = false;
 
-  constructor(data?: PartialMessage<StatusRequest>) {
+  constructor(data?: PartialMessage<SynchronizerStatusRequest>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = 'mystiko.api.synchronizer.v1.StatusRequest';
+  static readonly typeName = 'mystiko.api.synchronizer.v1.SynchronizerStatusRequest';
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: 'with_contracts', kind: 'scalar', T: 8 /* ScalarType.BOOL */ },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): StatusRequest {
-    return new StatusRequest().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): SynchronizerStatusRequest {
+    return new SynchronizerStatusRequest().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): StatusRequest {
-    return new StatusRequest().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): SynchronizerStatusRequest {
+    return new SynchronizerStatusRequest().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): StatusRequest {
-    return new StatusRequest().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): SynchronizerStatusRequest {
+    return new SynchronizerStatusRequest().fromJsonString(jsonString, options);
   }
 
   static equals(
-    a: StatusRequest | PlainMessage<StatusRequest> | undefined,
-    b: StatusRequest | PlainMessage<StatusRequest> | undefined,
+    a: SynchronizerStatusRequest | PlainMessage<SynchronizerStatusRequest> | undefined,
+    b: SynchronizerStatusRequest | PlainMessage<SynchronizerStatusRequest> | undefined,
   ): boolean {
-    return proto3.util.equals(StatusRequest, a, b);
+    return proto3.util.equals(SynchronizerStatusRequest, a, b);
   }
 }
 
 /**
- * @generated from message mystiko.api.synchronizer.v1.SyncRequest
+ * @generated from message mystiko.api.synchronizer.v1.SynchronizerSyncRequest
  */
-export class SyncRequest extends Message<SyncRequest> {
+export class SynchronizerSyncRequest extends Message<SynchronizerSyncRequest> {
   /**
-   * @generated from field: mystiko.core.synchronizer.v1.SyncOptions options = 1;
+   * @generated from field: mystiko.core.synchronizer.v1.SynchronizerSyncOptions options = 1;
    */
-  options?: SyncOptions;
+  options?: SynchronizerSyncOptions;
 
-  constructor(data?: PartialMessage<SyncRequest>) {
+  constructor(data?: PartialMessage<SynchronizerSyncRequest>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = 'mystiko.api.synchronizer.v1.SyncRequest';
+  static readonly typeName = 'mystiko.api.synchronizer.v1.SynchronizerSyncRequest';
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: 'options', kind: 'message', T: SyncOptions },
+    { no: 1, name: 'options', kind: 'message', T: SynchronizerSyncOptions },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): SyncRequest {
-    return new SyncRequest().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): SynchronizerSyncRequest {
+    return new SynchronizerSyncRequest().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): SyncRequest {
-    return new SyncRequest().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): SynchronizerSyncRequest {
+    return new SynchronizerSyncRequest().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): SyncRequest {
-    return new SyncRequest().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): SynchronizerSyncRequest {
+    return new SynchronizerSyncRequest().fromJsonString(jsonString, options);
   }
 
   static equals(
-    a: SyncRequest | PlainMessage<SyncRequest> | undefined,
-    b: SyncRequest | PlainMessage<SyncRequest> | undefined,
+    a: SynchronizerSyncRequest | PlainMessage<SynchronizerSyncRequest> | undefined,
+    b: SynchronizerSyncRequest | PlainMessage<SynchronizerSyncRequest> | undefined,
   ): boolean {
-    return proto3.util.equals(SyncRequest, a, b);
+    return proto3.util.equals(SynchronizerSyncRequest, a, b);
   }
 }
 

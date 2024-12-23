@@ -12,90 +12,90 @@ import type {
   PlainMessage,
 } from '@bufbuild/protobuf';
 import { Message, proto3, protoInt64 } from '@bufbuild/protobuf';
-import { SyncOptions } from '../../../core/scanner/v1/sync_pb.js';
-import { ScanOptions } from '../../../core/scanner/v1/scan_pb.js';
+import { ScannerSyncOptions } from '../../../core/scanner/v1/sync_pb.js';
+import { ScannerScanOptions } from '../../../core/scanner/v1/scan_pb.js';
 import { ScannerResetOptions } from '../../../core/scanner/v1/reset_pb.js';
 import { BalanceOptions } from '../../../core/scanner/v1/balance_pb.js';
 import { AssetsOptions } from '../../../core/scanner/v1/asset_pb.js';
 import { AssetImportOptions } from '../../../core/scanner/v1/import_pb.js';
 
 /**
- * @generated from message mystiko.api.scanner.v1.SyncRequest
+ * @generated from message mystiko.api.scanner.v1.ScannerSyncRequest
  */
-export class SyncRequest extends Message<SyncRequest> {
+export class ScannerSyncRequest extends Message<ScannerSyncRequest> {
   /**
-   * @generated from field: mystiko.core.scanner.v1.SyncOptions options = 1;
+   * @generated from field: mystiko.core.scanner.v1.ScannerSyncOptions options = 1;
    */
-  options?: SyncOptions;
+  options?: ScannerSyncOptions;
 
-  constructor(data?: PartialMessage<SyncRequest>) {
+  constructor(data?: PartialMessage<ScannerSyncRequest>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = 'mystiko.api.scanner.v1.SyncRequest';
+  static readonly typeName = 'mystiko.api.scanner.v1.ScannerSyncRequest';
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: 'options', kind: 'message', T: SyncOptions },
+    { no: 1, name: 'options', kind: 'message', T: ScannerSyncOptions },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): SyncRequest {
-    return new SyncRequest().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ScannerSyncRequest {
+    return new ScannerSyncRequest().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): SyncRequest {
-    return new SyncRequest().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): ScannerSyncRequest {
+    return new ScannerSyncRequest().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): SyncRequest {
-    return new SyncRequest().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): ScannerSyncRequest {
+    return new ScannerSyncRequest().fromJsonString(jsonString, options);
   }
 
   static equals(
-    a: SyncRequest | PlainMessage<SyncRequest> | undefined,
-    b: SyncRequest | PlainMessage<SyncRequest> | undefined,
+    a: ScannerSyncRequest | PlainMessage<ScannerSyncRequest> | undefined,
+    b: ScannerSyncRequest | PlainMessage<ScannerSyncRequest> | undefined,
   ): boolean {
-    return proto3.util.equals(SyncRequest, a, b);
+    return proto3.util.equals(ScannerSyncRequest, a, b);
   }
 }
 
 /**
- * @generated from message mystiko.api.scanner.v1.ScanRequest
+ * @generated from message mystiko.api.scanner.v1.ScannerScanRequest
  */
-export class ScanRequest extends Message<ScanRequest> {
+export class ScannerScanRequest extends Message<ScannerScanRequest> {
   /**
-   * @generated from field: mystiko.core.scanner.v1.ScanOptions options = 1;
+   * @generated from field: mystiko.core.scanner.v1.ScannerScanOptions options = 1;
    */
-  options?: ScanOptions;
+  options?: ScannerScanOptions;
 
-  constructor(data?: PartialMessage<ScanRequest>) {
+  constructor(data?: PartialMessage<ScannerScanRequest>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = 'mystiko.api.scanner.v1.ScanRequest';
+  static readonly typeName = 'mystiko.api.scanner.v1.ScannerScanRequest';
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: 'options', kind: 'message', T: ScanOptions },
+    { no: 1, name: 'options', kind: 'message', T: ScannerScanOptions },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ScanRequest {
-    return new ScanRequest().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ScannerScanRequest {
+    return new ScannerScanRequest().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): ScanRequest {
-    return new ScanRequest().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): ScannerScanRequest {
+    return new ScannerScanRequest().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): ScanRequest {
-    return new ScanRequest().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): ScannerScanRequest {
+    return new ScannerScanRequest().fromJsonString(jsonString, options);
   }
 
   static equals(
-    a: ScanRequest | PlainMessage<ScanRequest> | undefined,
-    b: ScanRequest | PlainMessage<ScanRequest> | undefined,
+    a: ScannerScanRequest | PlainMessage<ScannerScanRequest> | undefined,
+    b: ScannerScanRequest | PlainMessage<ScannerScanRequest> | undefined,
   ): boolean {
-    return proto3.util.equals(ScanRequest, a, b);
+    return proto3.util.equals(ScannerScanRequest, a, b);
   }
 }
 
@@ -266,41 +266,41 @@ export class ChainAssetsRequest extends Message<ChainAssetsRequest> {
 }
 
 /**
- * @generated from message mystiko.api.scanner.v1.AssetImportRequest
+ * @generated from message mystiko.api.scanner.v1.ScannerAssetImportRequest
  */
-export class AssetImportRequest extends Message<AssetImportRequest> {
+export class ScannerAssetImportRequest extends Message<ScannerAssetImportRequest> {
   /**
    * @generated from field: mystiko.core.scanner.v1.AssetImportOptions options = 1;
    */
   options?: AssetImportOptions;
 
-  constructor(data?: PartialMessage<AssetImportRequest>) {
+  constructor(data?: PartialMessage<ScannerAssetImportRequest>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = 'mystiko.api.scanner.v1.AssetImportRequest';
+  static readonly typeName = 'mystiko.api.scanner.v1.ScannerAssetImportRequest';
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: 'options', kind: 'message', T: AssetImportOptions },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): AssetImportRequest {
-    return new AssetImportRequest().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ScannerAssetImportRequest {
+    return new ScannerAssetImportRequest().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): AssetImportRequest {
-    return new AssetImportRequest().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): ScannerAssetImportRequest {
+    return new ScannerAssetImportRequest().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): AssetImportRequest {
-    return new AssetImportRequest().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): ScannerAssetImportRequest {
+    return new ScannerAssetImportRequest().fromJsonString(jsonString, options);
   }
 
   static equals(
-    a: AssetImportRequest | PlainMessage<AssetImportRequest> | undefined,
-    b: AssetImportRequest | PlainMessage<AssetImportRequest> | undefined,
+    a: ScannerAssetImportRequest | PlainMessage<ScannerAssetImportRequest> | undefined,
+    b: ScannerAssetImportRequest | PlainMessage<ScannerAssetImportRequest> | undefined,
   ): boolean {
-    return proto3.util.equals(AssetImportRequest, a, b);
+    return proto3.util.equals(ScannerAssetImportRequest, a, b);
   }
 }

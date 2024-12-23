@@ -14,9 +14,9 @@ import type {
 import { Message, proto3 } from '@bufbuild/protobuf';
 
 /**
- * @generated from message mystiko.core.synchronizer.v1.SyncOptions
+ * @generated from message mystiko.core.synchronizer.v1.SynchronizerSyncOptions
  */
-export class SyncOptions extends Message<SyncOptions> {
+export class SynchronizerSyncOptions extends Message<SynchronizerSyncOptions> {
   /**
    * @generated from field: optional bool disable_datapacker_fetcher = 1;
    */
@@ -92,13 +92,13 @@ export class SyncOptions extends Message<SyncOptions> {
    */
   chainIds: bigint[] = [];
 
-  constructor(data?: PartialMessage<SyncOptions>) {
+  constructor(data?: PartialMessage<SynchronizerSyncOptions>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = 'mystiko.core.synchronizer.v1.SyncOptions';
+  static readonly typeName = 'mystiko.core.synchronizer.v1.SynchronizerSyncOptions';
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: 'disable_datapacker_fetcher', kind: 'scalar', T: 8 /* ScalarType.BOOL */, opt: true },
     {
@@ -171,22 +171,22 @@ export class SyncOptions extends Message<SyncOptions> {
     { no: 15, name: 'chain_ids', kind: 'scalar', T: 4 /* ScalarType.UINT64 */, repeated: true },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): SyncOptions {
-    return new SyncOptions().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): SynchronizerSyncOptions {
+    return new SynchronizerSyncOptions().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): SyncOptions {
-    return new SyncOptions().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): SynchronizerSyncOptions {
+    return new SynchronizerSyncOptions().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): SyncOptions {
-    return new SyncOptions().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): SynchronizerSyncOptions {
+    return new SynchronizerSyncOptions().fromJsonString(jsonString, options);
   }
 
   static equals(
-    a: SyncOptions | PlainMessage<SyncOptions> | undefined,
-    b: SyncOptions | PlainMessage<SyncOptions> | undefined,
+    a: SynchronizerSyncOptions | PlainMessage<SynchronizerSyncOptions> | undefined,
+    b: SynchronizerSyncOptions | PlainMessage<SynchronizerSyncOptions> | undefined,
   ): boolean {
-    return proto3.util.equals(SyncOptions, a, b);
+    return proto3.util.equals(SynchronizerSyncOptions, a, b);
   }
 }
