@@ -1,21 +1,33 @@
 import { api, core } from '../src';
 
-const { ScanRequest, ScannerResetRequest, BalanceRequest, AssetsRequest, ChainAssetsRequest } =
+const { ScannerScanRequest, ScannerResetRequest, BalanceRequest, AssetsRequest, ChainAssetsRequest } =
   api.scanner.v1;
-const { ScanResponse, ResetResponse, BalanceResponse, AssetsResponse, ChainAssetsResponse } = api.scanner.v1;
-const { ScanOptions, ScannerResetOptions, BalanceOptions, AssetsOptions } = core.scanner.v1;
-const { ScanResult, ResetResult, BalanceResult, Balance, AssetsByChain, AssetsByBridge, AssetsBySymbol } =
-  core.scanner.v1;
+const { ScannerScanResponse, ScannerResetResponse, BalanceResponse, AssetsResponse, ChainAssetsResponse } =
+  api.scanner.v1;
+const { ScannerScanOptions, ScannerResetOptions, BalanceOptions, AssetsOptions } = core.scanner.v1;
+const {
+  ScannerScanResult,
+  ScannerResetResult,
+  BalanceResult,
+  Balance,
+  AssetsByChain,
+  AssetsByBridge,
+  AssetsBySymbol,
+} = core.scanner.v1;
 
 test('test request', () => {
-  const scanRequest = new ScanRequest({
-    options: new ScanOptions({
+  const scanRequest = new ScannerScanRequest({
+    options: new ScannerScanOptions({
       walletPassword: 'test password',
       concurrency: 1,
     }),
   });
-  expect(ScanRequest.equals(ScanRequest.fromJson(scanRequest.toJson()), scanRequest)).toBe(true);
-  expect(ScanRequest.equals(ScanRequest.fromBinary(scanRequest.toBinary()), scanRequest)).toBe(true);
+  expect(ScannerScanRequest.equals(ScannerScanRequest.fromJson(scanRequest.toJson()), scanRequest)).toBe(
+    true,
+  );
+  expect(ScannerScanRequest.equals(ScannerScanRequest.fromBinary(scanRequest.toBinary()), scanRequest)).toBe(
+    true,
+  );
 
   const resetRequest = new ScannerResetRequest({
     options: new ScannerResetOptions({
@@ -66,20 +78,28 @@ test('test request', () => {
 });
 
 test('test response', () => {
-  const scanResponse = new ScanResponse({
-    result: new ScanResult({
+  const scanResponse = new ScannerScanResponse({
+    result: new ScannerScanResult({
       totalCount: BigInt(1),
       ownedCount: BigInt(1),
     }),
   });
-  expect(ScanResponse.equals(ScanResponse.fromJson(scanResponse.toJson()), scanResponse)).toBe(true);
-  expect(ScanResponse.equals(ScanResponse.fromBinary(scanResponse.toBinary()), scanResponse)).toBe(true);
+  expect(ScannerScanResponse.equals(ScannerScanResponse.fromJson(scanResponse.toJson()), scanResponse)).toBe(
+    true,
+  );
+  expect(
+    ScannerScanResponse.equals(ScannerScanResponse.fromBinary(scanResponse.toBinary()), scanResponse),
+  ).toBe(true);
 
-  const resetResponse = new ResetResponse({
-    result: new ResetResult({}),
+  const resetResponse = new ScannerResetResponse({
+    result: new ScannerResetResult({}),
   });
-  expect(ResetResponse.equals(ResetResponse.fromJson(resetResponse.toJson()), resetResponse)).toBe(true);
-  expect(ResetResponse.equals(ResetResponse.fromBinary(resetResponse.toBinary()), resetResponse)).toBe(true);
+  expect(
+    ScannerResetResponse.equals(ScannerResetResponse.fromJson(resetResponse.toJson()), resetResponse),
+  ).toBe(true);
+  expect(
+    ScannerResetResponse.equals(ScannerResetResponse.fromBinary(resetResponse.toBinary()), resetResponse),
+  ).toBe(true);
 
   const balanceResponse = new BalanceResponse({
     result: new BalanceResult({

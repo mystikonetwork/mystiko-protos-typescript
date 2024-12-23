@@ -3,13 +3,14 @@ import { api, core } from '../src';
 const {
   ChainSyncedBlockRequest,
   ContractSyncedBlockRequest,
-  StatusRequest,
-  SyncRequest,
+  SynchronizerStatusRequest,
+  SynchronizerSyncRequest,
   SynchronizerResetRequest,
 } = api.synchronizer.v1;
-const { ChainSyncedBlockResponse, ContractSyncedBlockResponse, StatusResponse } = api.synchronizer.v1;
+const { ChainSyncedBlockResponse, ContractSyncedBlockResponse, SynchronizerStatusResponse } =
+  api.synchronizer.v1;
 const {
-  SyncOptions,
+  SynchronizerSyncOptions,
   SynchronizerResetOptions,
   ResetChainOptions,
   SynchronizerStatus,
@@ -51,20 +52,34 @@ test('test request', () => {
     ),
   ).toBe(true);
 
-  const statusRequest = new StatusRequest({
+  const statusRequest = new SynchronizerStatusRequest({
     withContracts: false,
   });
-  expect(StatusRequest.equals(StatusRequest.fromJson(statusRequest.toJson()), statusRequest)).toBe(true);
-  expect(StatusRequest.equals(StatusRequest.fromBinary(statusRequest.toBinary()), statusRequest)).toBe(true);
+  expect(
+    SynchronizerStatusRequest.equals(
+      SynchronizerStatusRequest.fromJson(statusRequest.toJson()),
+      statusRequest,
+    ),
+  ).toBe(true);
+  expect(
+    SynchronizerStatusRequest.equals(
+      SynchronizerStatusRequest.fromBinary(statusRequest.toBinary()),
+      statusRequest,
+    ),
+  ).toBe(true);
 
-  const syncRequest = new SyncRequest({
-    options: new SyncOptions({
+  const syncRequest = new SynchronizerSyncRequest({
+    options: new SynchronizerSyncOptions({
       chainIds: [BigInt(1)],
       disableDatapackerFetcher: false,
     }),
   });
-  expect(SyncRequest.equals(SyncRequest.fromJson(syncRequest.toJson()), syncRequest)).toBe(true);
-  expect(SyncRequest.equals(SyncRequest.fromBinary(syncRequest.toBinary()), syncRequest)).toBe(true);
+  expect(
+    SynchronizerSyncRequest.equals(SynchronizerSyncRequest.fromJson(syncRequest.toJson()), syncRequest),
+  ).toBe(true);
+  expect(
+    SynchronizerSyncRequest.equals(SynchronizerSyncRequest.fromBinary(syncRequest.toBinary()), syncRequest),
+  ).toBe(true);
 
   const resetRequest = new SynchronizerResetRequest({
     options: new SynchronizerResetOptions({
@@ -120,7 +135,7 @@ test('test response', () => {
     ),
   ).toBe(true);
 
-  const statusResponse = new StatusResponse({
+  const statusResponse = new SynchronizerStatusResponse({
     status: new SynchronizerStatus({
       chains: [
         new ChainStatus({
@@ -135,8 +150,16 @@ test('test response', () => {
       ],
     }),
   });
-  expect(StatusResponse.equals(StatusResponse.fromJson(statusResponse.toJson()), statusResponse)).toBe(true);
-  expect(StatusResponse.equals(StatusResponse.fromBinary(statusResponse.toBinary()), statusResponse)).toBe(
-    true,
-  );
+  expect(
+    SynchronizerStatusResponse.equals(
+      SynchronizerStatusResponse.fromJson(statusResponse.toJson()),
+      statusResponse,
+    ),
+  ).toBe(true);
+  expect(
+    SynchronizerStatusResponse.equals(
+      SynchronizerStatusResponse.fromBinary(statusResponse.toBinary()),
+      statusResponse,
+    ),
+  ).toBe(true);
 });
