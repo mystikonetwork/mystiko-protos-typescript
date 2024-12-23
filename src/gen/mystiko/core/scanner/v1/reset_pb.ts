@@ -60,34 +60,34 @@ export class ScannerResetOptions extends Message<ScannerResetOptions> {
 }
 
 /**
- * @generated from message mystiko.core.scanner.v1.ResetResult
+ * @generated from message mystiko.core.scanner.v1.ScannerResetResult
  */
-export class ResetResult extends Message<ResetResult> {
-  constructor(data?: PartialMessage<ResetResult>) {
+export class ScannerResetResult extends Message<ScannerResetResult> {
+  constructor(data?: PartialMessage<ScannerResetResult>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = 'mystiko.core.scanner.v1.ResetResult';
+  static readonly typeName = 'mystiko.core.scanner.v1.ScannerResetResult';
   static readonly fields: FieldList = proto3.util.newFieldList(() => []);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ResetResult {
-    return new ResetResult().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ScannerResetResult {
+    return new ScannerResetResult().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): ResetResult {
-    return new ResetResult().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): ScannerResetResult {
+    return new ScannerResetResult().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): ResetResult {
-    return new ResetResult().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): ScannerResetResult {
+    return new ScannerResetResult().fromJsonString(jsonString, options);
   }
 
   static equals(
-    a: ResetResult | PlainMessage<ResetResult> | undefined,
-    b: ResetResult | PlainMessage<ResetResult> | undefined,
+    a: ScannerResetResult | PlainMessage<ScannerResetResult> | undefined,
+    b: ScannerResetResult | PlainMessage<ScannerResetResult> | undefined,
   ): boolean {
-    return proto3.util.equals(ResetResult, a, b);
+    return proto3.util.equals(ScannerResetResult, a, b);
   }
 }

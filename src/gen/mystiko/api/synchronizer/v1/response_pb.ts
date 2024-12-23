@@ -95,41 +95,41 @@ export class ContractSyncedBlockResponse extends Message<ContractSyncedBlockResp
 }
 
 /**
- * @generated from message mystiko.api.synchronizer.v1.StatusResponse
+ * @generated from message mystiko.api.synchronizer.v1.SynchronizerStatusResponse
  */
-export class StatusResponse extends Message<StatusResponse> {
+export class SynchronizerStatusResponse extends Message<SynchronizerStatusResponse> {
   /**
    * @generated from field: mystiko.core.synchronizer.v1.SynchronizerStatus status = 1;
    */
   status?: SynchronizerStatus;
 
-  constructor(data?: PartialMessage<StatusResponse>) {
+  constructor(data?: PartialMessage<SynchronizerStatusResponse>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = 'mystiko.api.synchronizer.v1.StatusResponse';
+  static readonly typeName = 'mystiko.api.synchronizer.v1.SynchronizerStatusResponse';
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: 'status', kind: 'message', T: SynchronizerStatus },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): StatusResponse {
-    return new StatusResponse().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): SynchronizerStatusResponse {
+    return new SynchronizerStatusResponse().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): StatusResponse {
-    return new StatusResponse().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): SynchronizerStatusResponse {
+    return new SynchronizerStatusResponse().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): StatusResponse {
-    return new StatusResponse().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): SynchronizerStatusResponse {
+    return new SynchronizerStatusResponse().fromJsonString(jsonString, options);
   }
 
   static equals(
-    a: StatusResponse | PlainMessage<StatusResponse> | undefined,
-    b: StatusResponse | PlainMessage<StatusResponse> | undefined,
+    a: SynchronizerStatusResponse | PlainMessage<SynchronizerStatusResponse> | undefined,
+    b: SynchronizerStatusResponse | PlainMessage<SynchronizerStatusResponse> | undefined,
   ): boolean {
-    return proto3.util.equals(StatusResponse, a, b);
+    return proto3.util.equals(SynchronizerStatusResponse, a, b);
   }
 }

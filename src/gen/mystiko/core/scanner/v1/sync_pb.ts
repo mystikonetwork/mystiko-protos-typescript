@@ -14,9 +14,9 @@ import type {
 import { Message, proto3 } from '@bufbuild/protobuf';
 
 /**
- * @generated from message mystiko.core.scanner.v1.SyncOptions
+ * @generated from message mystiko.core.scanner.v1.ScannerSyncOptions
  */
-export class SyncOptions extends Message<SyncOptions> {
+export class ScannerSyncOptions extends Message<ScannerSyncOptions> {
   /**
    * @generated from field: string wallet_password = 1;
    */
@@ -27,34 +27,34 @@ export class SyncOptions extends Message<SyncOptions> {
    */
   concurrency?: number;
 
-  constructor(data?: PartialMessage<SyncOptions>) {
+  constructor(data?: PartialMessage<ScannerSyncOptions>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = 'mystiko.core.scanner.v1.SyncOptions';
+  static readonly typeName = 'mystiko.core.scanner.v1.ScannerSyncOptions';
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: 'wallet_password', kind: 'scalar', T: 9 /* ScalarType.STRING */ },
     { no: 2, name: 'concurrency', kind: 'scalar', T: 13 /* ScalarType.UINT32 */, opt: true },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): SyncOptions {
-    return new SyncOptions().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ScannerSyncOptions {
+    return new ScannerSyncOptions().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): SyncOptions {
-    return new SyncOptions().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): ScannerSyncOptions {
+    return new ScannerSyncOptions().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): SyncOptions {
-    return new SyncOptions().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): ScannerSyncOptions {
+    return new ScannerSyncOptions().fromJsonString(jsonString, options);
   }
 
   static equals(
-    a: SyncOptions | PlainMessage<SyncOptions> | undefined,
-    b: SyncOptions | PlainMessage<SyncOptions> | undefined,
+    a: ScannerSyncOptions | PlainMessage<ScannerSyncOptions> | undefined,
+    b: ScannerSyncOptions | PlainMessage<ScannerSyncOptions> | undefined,
   ): boolean {
-    return proto3.util.equals(SyncOptions, a, b);
+    return proto3.util.equals(ScannerSyncOptions, a, b);
   }
 }
