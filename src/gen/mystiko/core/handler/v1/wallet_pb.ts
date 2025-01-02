@@ -12,6 +12,53 @@ import type {
   PlainMessage,
 } from '@bufbuild/protobuf';
 import { Message, proto3 } from '@bufbuild/protobuf';
+import { MnemonicType } from '../../v1/common_pb.js';
+
+/**
+ * @generated from message mystiko.core.handler.v1.MnemonicOptions
+ */
+export class MnemonicOptions extends Message<MnemonicOptions> {
+  /**
+   * @generated from field: string mnemonic_phrase = 1;
+   */
+  mnemonicPhrase = '';
+
+  /**
+   * @generated from field: mystiko.core.v1.MnemonicType mnemonic_type = 2;
+   */
+  mnemonicType = MnemonicType.UNSPECIFIED;
+
+  constructor(data?: PartialMessage<MnemonicOptions>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = 'mystiko.core.handler.v1.MnemonicOptions';
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: 'mnemonic_phrase', kind: 'scalar', T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: 'mnemonic_type', kind: 'enum', T: proto3.getEnumType(MnemonicType) },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MnemonicOptions {
+    return new MnemonicOptions().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MnemonicOptions {
+    return new MnemonicOptions().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MnemonicOptions {
+    return new MnemonicOptions().fromJsonString(jsonString, options);
+  }
+
+  static equals(
+    a: MnemonicOptions | PlainMessage<MnemonicOptions> | undefined,
+    b: MnemonicOptions | PlainMessage<MnemonicOptions> | undefined,
+  ): boolean {
+    return proto3.util.equals(MnemonicOptions, a, b);
+  }
+}
 
 /**
  * @generated from message mystiko.core.handler.v1.CreateWalletOptions
@@ -23,9 +70,9 @@ export class CreateWalletOptions extends Message<CreateWalletOptions> {
   password = '';
 
   /**
-   * @generated from field: optional string mnemonic_phrase = 2;
+   * @generated from field: optional mystiko.core.handler.v1.MnemonicOptions mnemonic = 2;
    */
-  mnemonicPhrase?: string;
+  mnemonic?: MnemonicOptions;
 
   constructor(data?: PartialMessage<CreateWalletOptions>) {
     super();
@@ -36,7 +83,7 @@ export class CreateWalletOptions extends Message<CreateWalletOptions> {
   static readonly typeName = 'mystiko.core.handler.v1.CreateWalletOptions';
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: 'password', kind: 'scalar', T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: 'mnemonic_phrase', kind: 'scalar', T: 9 /* ScalarType.STRING */, opt: true },
+    { no: 2, name: 'mnemonic', kind: 'message', T: MnemonicOptions, opt: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): CreateWalletOptions {

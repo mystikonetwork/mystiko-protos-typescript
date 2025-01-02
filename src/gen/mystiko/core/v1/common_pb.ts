@@ -6,6 +6,32 @@
 import { proto3 } from '@bufbuild/protobuf';
 
 /**
+ * @generated from enum mystiko.core.v1.MnemonicType
+ */
+export enum MnemonicType {
+  /**
+   * @generated from enum value: MNEMONIC_TYPE_UNSPECIFIED = 0;
+   */
+  UNSPECIFIED = 0,
+
+  /**
+   * @generated from enum value: MNEMONIC_TYPE_WEB = 1;
+   */
+  WEB = 1,
+
+  /**
+   * @generated from enum value: MNEMONIC_TYPE_RUST = 2;
+   */
+  RUST = 2,
+}
+// Retrieve enum metadata with: proto3.getEnumType(MnemonicType)
+proto3.util.setEnumType(MnemonicType, 'mystiko.core.v1.MnemonicType', [
+  { no: 0, name: 'MNEMONIC_TYPE_UNSPECIFIED' },
+  { no: 1, name: 'MNEMONIC_TYPE_WEB' },
+  { no: 2, name: 'MNEMONIC_TYPE_RUST' },
+]);
+
+/**
  * @generated from enum mystiko.core.v1.DepositStatus
  */
 export enum DepositStatus {

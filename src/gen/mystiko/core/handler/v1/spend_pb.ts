@@ -849,3 +849,49 @@ export class SpendSummary extends Message<SpendSummary> {
     return proto3.util.equals(SpendSummary, a, b);
   }
 }
+
+/**
+ * @generated from message mystiko.core.handler.v1.FixSpendStatusOptions
+ */
+export class FixSpendStatusOptions extends Message<FixSpendStatusOptions> {
+  /**
+   * @generated from field: string spend_id = 1;
+   */
+  spendId = '';
+
+  /**
+   * @generated from field: optional uint64 query_timeout_ms = 2;
+   */
+  queryTimeoutMs?: bigint;
+
+  constructor(data?: PartialMessage<FixSpendStatusOptions>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = 'mystiko.core.handler.v1.FixSpendStatusOptions';
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: 'spend_id', kind: 'scalar', T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: 'query_timeout_ms', kind: 'scalar', T: 4 /* ScalarType.UINT64 */, opt: true },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): FixSpendStatusOptions {
+    return new FixSpendStatusOptions().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): FixSpendStatusOptions {
+    return new FixSpendStatusOptions().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): FixSpendStatusOptions {
+    return new FixSpendStatusOptions().fromJsonString(jsonString, options);
+  }
+
+  static equals(
+    a: FixSpendStatusOptions | PlainMessage<FixSpendStatusOptions> | undefined,
+    b: FixSpendStatusOptions | PlainMessage<FixSpendStatusOptions> | undefined,
+  ): boolean {
+    return proto3.util.equals(FixSpendStatusOptions, a, b);
+  }
+}

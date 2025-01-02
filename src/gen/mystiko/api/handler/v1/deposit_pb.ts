@@ -16,6 +16,7 @@ import {
   CreateDepositOptions,
   DepositQuote,
   DepositSummary,
+  FixDepositStatusOptions,
   QuoteDepositOptions,
   SendDepositOptions,
 } from '../../../core/handler/v1/deposit_pb.js';
@@ -227,6 +228,46 @@ export class SendWithGrpcRequest extends Message<SendWithGrpcRequest> {
     b: SendWithGrpcRequest | PlainMessage<SendWithGrpcRequest> | undefined,
   ): boolean {
     return proto3.util.equals(SendWithGrpcRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message mystiko.api.handler.v1.FixDepositStatusRequest
+ */
+export class FixDepositStatusRequest extends Message<FixDepositStatusRequest> {
+  /**
+   * @generated from field: mystiko.core.handler.v1.FixDepositStatusOptions options = 1;
+   */
+  options?: FixDepositStatusOptions;
+
+  constructor(data?: PartialMessage<FixDepositStatusRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = 'mystiko.api.handler.v1.FixDepositStatusRequest';
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: 'options', kind: 'message', T: FixDepositStatusOptions },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): FixDepositStatusRequest {
+    return new FixDepositStatusRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): FixDepositStatusRequest {
+    return new FixDepositStatusRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): FixDepositStatusRequest {
+    return new FixDepositStatusRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(
+    a: FixDepositStatusRequest | PlainMessage<FixDepositStatusRequest> | undefined,
+    b: FixDepositStatusRequest | PlainMessage<FixDepositStatusRequest> | undefined,
+  ): boolean {
+    return proto3.util.equals(FixDepositStatusRequest, a, b);
   }
 }
 
@@ -799,6 +840,46 @@ export class SendResponse extends Message<SendResponse> {
     b: SendResponse | PlainMessage<SendResponse> | undefined,
   ): boolean {
     return proto3.util.equals(SendResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message mystiko.api.handler.v1.FixDepositStatusResponse
+ */
+export class FixDepositStatusResponse extends Message<FixDepositStatusResponse> {
+  /**
+   * @generated from field: mystiko.core.document.v1.Deposit deposit = 1;
+   */
+  deposit?: Deposit;
+
+  constructor(data?: PartialMessage<FixDepositStatusResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = 'mystiko.api.handler.v1.FixDepositStatusResponse';
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: 'deposit', kind: 'message', T: Deposit },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): FixDepositStatusResponse {
+    return new FixDepositStatusResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): FixDepositStatusResponse {
+    return new FixDepositStatusResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): FixDepositStatusResponse {
+    return new FixDepositStatusResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(
+    a: FixDepositStatusResponse | PlainMessage<FixDepositStatusResponse> | undefined,
+    b: FixDepositStatusResponse | PlainMessage<FixDepositStatusResponse> | undefined,
+  ): boolean {
+    return proto3.util.equals(FixDepositStatusResponse, a, b);
   }
 }
 

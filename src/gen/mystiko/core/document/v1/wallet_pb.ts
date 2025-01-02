@@ -12,6 +12,7 @@ import type {
   PlainMessage,
 } from '@bufbuild/protobuf';
 import { Message, proto3, protoInt64 } from '@bufbuild/protobuf';
+import { MnemonicType } from '../../v1/common_pb.js';
 
 /**
  * @generated from message mystiko.core.document.v1.Wallet
@@ -47,6 +48,11 @@ export class Wallet extends Message<Wallet> {
    */
   accountNonce = 0;
 
+  /**
+   * @generated from field: mystiko.core.v1.MnemonicType mnemonic_type = 7;
+   */
+  mnemonicType = MnemonicType.UNSPECIFIED;
+
   constructor(data?: PartialMessage<Wallet>) {
     super();
     proto3.util.initPartial(data, this);
@@ -61,6 +67,7 @@ export class Wallet extends Message<Wallet> {
     { no: 4, name: 'encrypted_entropy', kind: 'scalar', T: 9 /* ScalarType.STRING */ },
     { no: 5, name: 'hashed_password', kind: 'scalar', T: 9 /* ScalarType.STRING */ },
     { no: 6, name: 'account_nonce', kind: 'scalar', T: 13 /* ScalarType.UINT32 */ },
+    { no: 7, name: 'mnemonic_type', kind: 'enum', T: proto3.getEnumType(MnemonicType) },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Wallet {

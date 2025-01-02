@@ -634,3 +634,49 @@ export class DepositSummary extends Message<DepositSummary> {
     return proto3.util.equals(DepositSummary, a, b);
   }
 }
+
+/**
+ * @generated from message mystiko.core.handler.v1.FixDepositStatusOptions
+ */
+export class FixDepositStatusOptions extends Message<FixDepositStatusOptions> {
+  /**
+   * @generated from field: string deposit_id = 1;
+   */
+  depositId = '';
+
+  /**
+   * @generated from field: optional uint64 query_timeout_ms = 2;
+   */
+  queryTimeoutMs?: bigint;
+
+  constructor(data?: PartialMessage<FixDepositStatusOptions>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = 'mystiko.core.handler.v1.FixDepositStatusOptions';
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: 'deposit_id', kind: 'scalar', T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: 'query_timeout_ms', kind: 'scalar', T: 4 /* ScalarType.UINT64 */, opt: true },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): FixDepositStatusOptions {
+    return new FixDepositStatusOptions().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): FixDepositStatusOptions {
+    return new FixDepositStatusOptions().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): FixDepositStatusOptions {
+    return new FixDepositStatusOptions().fromJsonString(jsonString, options);
+  }
+
+  static equals(
+    a: FixDepositStatusOptions | PlainMessage<FixDepositStatusOptions> | undefined,
+    b: FixDepositStatusOptions | PlainMessage<FixDepositStatusOptions> | undefined,
+  ): boolean {
+    return proto3.util.equals(FixDepositStatusOptions, a, b);
+  }
+}
