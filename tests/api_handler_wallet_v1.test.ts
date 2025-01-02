@@ -1,4 +1,5 @@
 import { api, core } from '../src';
+import { MnemonicType } from '../src/gen/mystiko/core/v1/common_pb';
 
 const { Wallet } = core.document.v1;
 const { CreateWalletOptions } = core.handler.v1;
@@ -16,7 +17,10 @@ test('test request', () => {
   const createWalletRequest = new CreateWalletRequest({
     options: new CreateWalletOptions({
       password: 'test password',
-      mnemonicPhrase: '123',
+      mnemonic: {
+        mnemonicPhrase: 'blind race civil nerve pulse awkward cluster squirrel thumb stove cup client',
+        mnemonicType: MnemonicType.WEB,
+      },
     }),
   });
   expect(

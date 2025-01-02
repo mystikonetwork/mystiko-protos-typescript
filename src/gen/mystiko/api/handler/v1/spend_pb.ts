@@ -14,6 +14,7 @@ import type {
 import { Message, proto3, protoInt64 } from '@bufbuild/protobuf';
 import {
   CreateSpendOptions,
+  FixSpendStatusOptions,
   QuoteSpendOptions,
   SendSpendOptions,
   SpendQuote,
@@ -227,6 +228,46 @@ export class SendSpendWithGrpcRequest extends Message<SendSpendWithGrpcRequest> 
     b: SendSpendWithGrpcRequest | PlainMessage<SendSpendWithGrpcRequest> | undefined,
   ): boolean {
     return proto3.util.equals(SendSpendWithGrpcRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message mystiko.api.handler.v1.FixSpendStatusRequest
+ */
+export class FixSpendStatusRequest extends Message<FixSpendStatusRequest> {
+  /**
+   * @generated from field: mystiko.core.handler.v1.FixSpendStatusOptions options = 1;
+   */
+  options?: FixSpendStatusOptions;
+
+  constructor(data?: PartialMessage<FixSpendStatusRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = 'mystiko.api.handler.v1.FixSpendStatusRequest';
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: 'options', kind: 'message', T: FixSpendStatusOptions },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): FixSpendStatusRequest {
+    return new FixSpendStatusRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): FixSpendStatusRequest {
+    return new FixSpendStatusRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): FixSpendStatusRequest {
+    return new FixSpendStatusRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(
+    a: FixSpendStatusRequest | PlainMessage<FixSpendStatusRequest> | undefined,
+    b: FixSpendStatusRequest | PlainMessage<FixSpendStatusRequest> | undefined,
+  ): boolean {
+    return proto3.util.equals(FixSpendStatusRequest, a, b);
   }
 }
 
@@ -793,6 +834,46 @@ export class SendSpendResponse extends Message<SendSpendResponse> {
     b: SendSpendResponse | PlainMessage<SendSpendResponse> | undefined,
   ): boolean {
     return proto3.util.equals(SendSpendResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message mystiko.api.handler.v1.FixSpendStatusResponse
+ */
+export class FixSpendStatusResponse extends Message<FixSpendStatusResponse> {
+  /**
+   * @generated from field: mystiko.core.document.v1.Spend spend = 1;
+   */
+  spend?: Spend;
+
+  constructor(data?: PartialMessage<FixSpendStatusResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = 'mystiko.api.handler.v1.FixSpendStatusResponse';
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: 'spend', kind: 'message', T: Spend },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): FixSpendStatusResponse {
+    return new FixSpendStatusResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): FixSpendStatusResponse {
+    return new FixSpendStatusResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): FixSpendStatusResponse {
+    return new FixSpendStatusResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(
+    a: FixSpendStatusResponse | PlainMessage<FixSpendStatusResponse> | undefined,
+    b: FixSpendStatusResponse | PlainMessage<FixSpendStatusResponse> | undefined,
+  ): boolean {
+    return proto3.util.equals(FixSpendStatusResponse, a, b);
   }
 }
 
