@@ -181,3 +181,49 @@ export class BalanceResult extends Message<BalanceResult> {
     return proto3.util.equals(BalanceResult, a, b);
   }
 }
+
+/**
+ * @generated from message mystiko.core.scanner.v1.AccountBalanceResult
+ */
+export class AccountBalanceResult extends Message<AccountBalanceResult> {
+  /**
+   * @generated from field: string shielded_addresses = 1;
+   */
+  shieldedAddresses = '';
+
+  /**
+   * @generated from field: repeated mystiko.core.scanner.v1.Balance balances = 2;
+   */
+  balances: Balance[] = [];
+
+  constructor(data?: PartialMessage<AccountBalanceResult>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = 'mystiko.core.scanner.v1.AccountBalanceResult';
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: 'shielded_addresses', kind: 'scalar', T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: 'balances', kind: 'message', T: Balance, repeated: true },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): AccountBalanceResult {
+    return new AccountBalanceResult().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): AccountBalanceResult {
+    return new AccountBalanceResult().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): AccountBalanceResult {
+    return new AccountBalanceResult().fromJsonString(jsonString, options);
+  }
+
+  static equals(
+    a: AccountBalanceResult | PlainMessage<AccountBalanceResult> | undefined,
+    b: AccountBalanceResult | PlainMessage<AccountBalanceResult> | undefined,
+  ): boolean {
+    return proto3.util.equals(AccountBalanceResult, a, b);
+  }
+}

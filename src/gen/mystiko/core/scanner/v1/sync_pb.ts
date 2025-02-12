@@ -12,6 +12,7 @@ import type {
   PlainMessage,
 } from '@bufbuild/protobuf';
 import { Message, proto3 } from '@bufbuild/protobuf';
+import { AccountBalanceResult } from './balance_pb.js';
 
 /**
  * @generated from message mystiko.core.scanner.v1.ScannerSyncOptions
@@ -56,5 +57,45 @@ export class ScannerSyncOptions extends Message<ScannerSyncOptions> {
     b: ScannerSyncOptions | PlainMessage<ScannerSyncOptions> | undefined,
   ): boolean {
     return proto3.util.equals(ScannerSyncOptions, a, b);
+  }
+}
+
+/**
+ * @generated from message mystiko.core.scanner.v1.ScannerSyncResult
+ */
+export class ScannerSyncResult extends Message<ScannerSyncResult> {
+  /**
+   * @generated from field: repeated mystiko.core.scanner.v1.AccountBalanceResult results = 1;
+   */
+  results: AccountBalanceResult[] = [];
+
+  constructor(data?: PartialMessage<ScannerSyncResult>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = 'mystiko.core.scanner.v1.ScannerSyncResult';
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: 'results', kind: 'message', T: AccountBalanceResult, repeated: true },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ScannerSyncResult {
+    return new ScannerSyncResult().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): ScannerSyncResult {
+    return new ScannerSyncResult().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): ScannerSyncResult {
+    return new ScannerSyncResult().fromJsonString(jsonString, options);
+  }
+
+  static equals(
+    a: ScannerSyncResult | PlainMessage<ScannerSyncResult> | undefined,
+    b: ScannerSyncResult | PlainMessage<ScannerSyncResult> | undefined,
+  ): boolean {
+    return proto3.util.equals(ScannerSyncResult, a, b);
   }
 }

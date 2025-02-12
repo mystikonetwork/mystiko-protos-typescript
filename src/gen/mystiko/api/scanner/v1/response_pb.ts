@@ -12,9 +12,10 @@ import type {
   PlainMessage,
 } from '@bufbuild/protobuf';
 import { Message, proto3 } from '@bufbuild/protobuf';
-import { BalanceResult } from '../../../core/scanner/v1/balance_pb.js';
+import { ScannerSyncResult } from '../../../core/scanner/v1/sync_pb.js';
 import { ScannerScanResult } from '../../../core/scanner/v1/scan_pb.js';
 import { ScannerResetResult } from '../../../core/scanner/v1/reset_pb.js';
+import { BalanceResult } from '../../../core/scanner/v1/balance_pb.js';
 import { AssetsByChain } from '../../../core/scanner/v1/asset_pb.js';
 import { AssetImportResult } from '../../../core/scanner/v1/import_pb.js';
 
@@ -23,9 +24,9 @@ import { AssetImportResult } from '../../../core/scanner/v1/import_pb.js';
  */
 export class ScannerSyncResponse extends Message<ScannerSyncResponse> {
   /**
-   * @generated from field: mystiko.core.scanner.v1.BalanceResult result = 1;
+   * @generated from field: mystiko.core.scanner.v1.ScannerSyncResult result = 1;
    */
-  result?: BalanceResult;
+  result?: ScannerSyncResult;
 
   constructor(data?: PartialMessage<ScannerSyncResponse>) {
     super();
@@ -35,7 +36,7 @@ export class ScannerSyncResponse extends Message<ScannerSyncResponse> {
   static readonly runtime: typeof proto3 = proto3;
   static readonly typeName = 'mystiko.api.scanner.v1.ScannerSyncResponse';
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: 'result', kind: 'message', T: BalanceResult },
+    { no: 1, name: 'result', kind: 'message', T: ScannerSyncResult },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ScannerSyncResponse {
